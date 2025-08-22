@@ -1,10 +1,10 @@
 ---
-title: "TODO - Your title"
-abbrev: "TODO - Abbreviation"
+title: " Evaluating Technical Standards in the Public Interest: A Guide for Public Funding Organizations"
+abbrev: "public-funder-guide"
 category: info
 
 docname: draft-tarakiyee-funder-guide-latest
-submissiontype: IETF  # also: "independent", "editorial", "IAB", or "IRTF"
+submissiontype: "independent"
 number:
 date:
 consensus: true
@@ -25,8 +25,8 @@ venue:
 
 author:
  -
-    fullname: "Tara"
-    organization: Your Organization Here
+    fullname: "Tara Tarakiyee"
+    organization: Sovereign Tech Agency
     email: "me@tarakiyee.com"
 
 normative:
