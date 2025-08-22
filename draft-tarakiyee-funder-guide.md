@@ -8,17 +8,11 @@ submissiontype: "independent"
 number:
 date:
 v: 3
-# area: AREA
-# workgroup: WG Working Group
 keyword:
  - funder guide
  - standards evaluation
  - public interest
 venue:
-#  group: WG
-#  type: Working Group
-#  mail: WG@example.com
-#  arch: https://example.com/WG
   github: "tarakiyee/funder-guide-draft"
   latest: "https://tarakiyee.github.io/funder-guide-draft/draft-tarakiyee-funder-guide.html"
 
