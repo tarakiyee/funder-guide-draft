@@ -27,7 +27,7 @@ author:
     fullname: "Tara Tarakiyee"
     organization: Sovereign Tech Agency
     email: "me@tarakiyee.com"
-    
+
 normative:
   RFC2026:
   RFC3935:
