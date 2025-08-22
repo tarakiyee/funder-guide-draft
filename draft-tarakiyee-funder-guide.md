@@ -94,7 +94,7 @@ This document provides:
 - The IETF model and its key principles ({{ietf-model}})
 - Practical evaluation criteria for funding decisions ({{evaluation}})
 - Human rights and social considerations ({{human-rights}})
-- Methods for tracking standards development ({{tracking}})
+- Methods for following standards development ({{followingwork}})
 - Common pitfalls and how to avoid them ({{pitfalls}})
 - Concrete recommendations for funders ({{recommendations}})
 
