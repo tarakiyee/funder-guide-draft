@@ -1,0 +1,2382 @@
+<!DOCTYPE html>
+<html lang="en" class="Internet-Draft">
+<head>
+<meta charset="utf-8">
+<meta content="Common,Latin" name="scripts">
+<meta content="initial-scale=1.0" name="viewport">
+<title>Evaluating Technical Standards in the Public Interest: A Guide for Public Funding Organizations</title>
+<meta content="Tara Tarakiyee" name="author">
+<meta content="
+       Technical standards are agreements that make the Internet and digital technologies work. This document helps public funding organizations understand and evaluate opportunities to invest in standards development. Drawing from decades of Internet Engineering Task Force (IETF) experience documented across numerous RFCs, it explains key concepts like interoperability, rough consensus, and running code while providing practical frameworks for assessment. The guide emphasizes that successful standards require not just technical excellence but also open processes, real implementations, and consideration of human rights and social impact. It tries to provide concrete evaluation criteria while remaining accessible to funders new to standards work. 
+    " name="description">
+<meta content="xml2rfc 3.30.0" name="generator">
+<meta content="funder guide" name="keyword">
+<meta content="standards evaluation" name="keyword">
+<meta content="public interest" name="keyword">
+<meta content="draft-tarakiyee-funder-guide-latest" name="ietf.draft">
+<!-- Generator version information:
+  xml2rfc 3.30.0
+    Python 3.12.11
+    ConfigArgParse 1.7
+    google-i18n-address 3.1.1
+    intervaltree 3.1.0
+    Jinja2 3.1.6
+    lxml 5.3.1
+    platformdirs 4.3.8
+    pycountry 24.6.1
+    PyYAML 6.0.2
+    requests 2.32.4
+    setuptools 80.9.0
+    wcwidth 0.2.13
+-->
+<link href="draft-tarakiyee-funder-guide.xml" rel="alternate" type="application/rfc+xml">
+<link href="#copyright" rel="license">
+<style type="text/css">@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-vietnamese.woff2') format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-cyrillic.woff2') format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-vietnamese.woff2') format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Lora Bold'), local('Lora-Bold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-bold-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Lora Bold'), local('Lora-Bold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-bold-cyrillic.woff2') format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Lora Bold'), local('Lora-Bold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-bold-vietnamese.woff2') format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Lora Bold'), local('Lora-Bold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-bold-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Lora Bold'), local('Lora-Bold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-bold-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Lora SemiBold'), local('Lora-SemiBold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-semibold-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Oxygen Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Oxygen Mono'), local('OxygenMono-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/oxygenmono-regular-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Oxygen Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Oxygen Mono'), local('OxygenMono-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/oxygenmono-regular-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-greek.woff2') format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-greek.woff2') format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root {
+  color-scheme: light dark;
+  --background-color: #fff;
+  --text-color: #222;
+  --title-color: #191919;
+  --link-color: #2a6496;
+  --highlight-color: #f9f9f9;
+  --line-color: #eee;
+  --pilcrow-weak: #ddd;
+  --pilcrow-strong: #bbb;
+  --small-font-size: 14.5px;
+  --font-mono: 'Oxygen Mono', monospace;
+  --font-title: "Sofia Sans Semi Condensed", sans-serif;
+  scrollbar-color: #bbb #eee;
+}
+body {
+  max-width: 600px;
+  margin: 75px auto;
+  padding: 0 5px;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  font: 16px/22px "Lora", serif;
+  scroll-behavior: smooth;
+}
+
+.ears {
+  display: none;
+}
+
+/* headings */
+section {
+  clear: both;
+}
+.section-number {
+  padding-right: 0.5em;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-title);
+  font-weight: 680;
+  margin: 0.8em 0 0.3em;
+  font-size-adjust: 0.5;
+  color: var(--title-color);
+}
+h1#title {
+  font-size: 32px;
+  line-height: 40px;
+  clear: both;
+}
+h1#title, h1#rfcnum {
+  margin: 1.5em 0 0.2em;
+}
+h1#rfcnum + h1#title {
+  margin: 0.2em 0;
+}
+
+h1, h2, h3 {
+  font-size: 22px;
+  line-height: 27px;
+}
+h4, h5, h6 {
+  font-size: 20px;
+  line-height: 24px;
+}
+
+/* general structure */
+.author {
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+#abstract+p {
+  font-size: 18px;
+  line-height: 24px;
+}
+#abstract+p code, #abstract+p samp, #abstract+p tt {
+  font-size: 16px;
+  line-height: 0;
+}
+
+p {
+  padding: 0;
+  margin: 0.5em 0;
+  text-align: left;
+}
+div {
+  margin: 0;
+}
+.alignRight.art-text {
+  background-color: var(--highlight-color);
+  border: 1px solid var(--line-color);
+  border-radius: 3px;
+  padding: 0.5em 1em 0;
+  margin-bottom: 0.5em;
+}
+.alignRight.art-text pre {
+  padding: 0;
+  width: auto;
+}
+.alignRight {
+  margin: 1em 0;
+}
+.alignRight > *:first-child {
+  border: none;
+  margin: 0;
+  float: right;
+  clear: both;
+}
+.alignRight > *:nth-child(2) {
+  clear: both;
+  display: block;
+  border: none;
+}
+svg {
+  display: block;
+}
+/* font-family isn't space-separated, but =~ will have to do */
+svg[font-family~="monospace" i], svg [font-family~="monospace" i] {
+  font-family: var(--font-mono);
+}
+.alignCenter.art-text {
+  background-color: var(--highlight-color);
+  border: 1px solid var(--line-color);
+  border-radius: 3px;
+  padding: 0.5em 1em 0;
+  margin-bottom: 0.5em;
+}
+.alignCenter.art-text pre {
+  padding: 0;
+  width: auto;
+}
+.alignCenter {
+  margin: 1em 0;
+}
+.alignCenter > *:first-child {
+  border: none;
+  /* this isn't optimal, but it's an existence proof.  PrinceXML doesn't
+     support flexbox yet.
+  */
+  display: table;
+  margin: 0 auto;
+}
+
+/* lists */
+ol, ul {
+  padding: 0;
+  margin: 0 0 0.5em 2em;
+  & :is(ol, ul) {
+    margin-left: 1em;
+  }
+}
+li {
+  margin: 0 0 0.25em 0;
+}
+ul.empty, .ulEmpty {
+  list-style-type: none;
+  & li {
+    margin-top: 0.5em;
+  }
+}
+:is(ul, ol).compact, .ulCompact, .olCompact {
+  margin: 0 0 0 2em;
+  & li {
+    margin: 0;
+    & :first-child { margin-top: 0; }
+    & :last-child { margin-bottom: 0; }
+  }
+}
+
+/* definition lists */
+dl {
+  clear: left;
+  --indent: 3ch;
+  /* --indent: attr(indent ch); not supported in any browser, but we can dream */
+  &.olPercent {
+    --indent: 5ch;
+    & > dt {
+      min-width: calc(var(--indent) - 2ch);
+    }
+  }
+  &.olPercent > dt {
+    float: none;
+  }
+
+  dl > dd > & {
+    margin-top: 0.5em;
+    margin-bottom: 0;
+  }
+}
+dl:not(.dlNewline) > dt {
+  float: left;
+  margin-right: 2ch;
+  min-width: 8ch;
+}
+dl > dd {
+  margin-bottom: .8em;
+  margin-left: var(--indent) !important; /* stupid element overrides */
+  min-height: 2ex;
+}
+:is(dl.compact, .dlCompact) > dd {
+  margin-bottom: 0;
+  & > :is(:first-child, .break:first-child + *) {
+    margin-top: 0;
+  }
+  & > :is(:last-child) {
+    margin-bottom: 0;
+  }
+}
+:is(dd, span).break {
+  display: none;
+}
+
+/* links */
+a, a[href].selfRef:hover {
+  text-decoration: none;
+}
+a[href] {
+  color: var(--link-color);
+}
+a[href].selfRef, .iref + a[href].internal {
+  color: var(--text-color);
+}
+a[href]:hover {
+  text-decoration: underline;
+}
+a[href].selfRef:hover {
+  background-color: var(--highlight-color);
+}
+a.xref:is(.cite, .auto), :is(#status-of-memo, #copyright) a {
+  white-space: nowrap;
+}
+
+/* Figures */
+tt, code, pre {
+  background-color: var(--highlight-color);
+  font: 14px/22px var(--font-mono);
+}
+tt, code {
+  /* changing the font for inline elements leads to different ascender
+     and descender heights; as we want to retain baseline alignment,
+     remove leading to avoid altering the final height of lines
+     note: this fails if these blocks take an entire line,
+     a different solution would be great */
+  line-height: 0;
+}
+:is(h1, h2, h3, h4, h5, h6) :is(tt, code) {
+  font-size: 84%;
+}
+pre {
+  border: 1px solid var(--line-color);
+  font-size: 13.5px;
+  line-height: 16px;
+  letter-spacing: -0.2px;
+  margin: 5px;
+  padding: 5px;
+}
+img {
+  max-width: 100%;
+}
+figure {
+  margin: 0.5em 0;
+  padding: 0;
+}
+figure blockquote {
+  margin: 0.8em 0.4em 0.4em;
+}
+figcaption, caption {
+  font-style: italic;
+  margin: 0.5em 1.5em;
+  text-align: left;
+  caption-side: bottom;
+}
+@media screen {
+  /* Auto-collapse boilerplate. */
+  :is(#status-of-memo, #copyright) p {
+    margin: -2px 0;
+    max-height: 0;
+    transition: max-height 2s ease, margin 0.5s ease 0.5s;
+    overflow: hidden;
+  }
+  :is(#status-of-memo, #copyright):hover p,
+  :is(#status-of-memo, #copyright) h2:target ~ p {
+    margin: 0.5em 0;
+    max-height: 500px;
+    overflow: auto;
+  }
+  pre, svg {
+    display: inline-block;
+    /* In the horizontal direction, sometimes people make over-sized figures.
+       Scrollbars for those is therefore necessary: auto adds them as necessary..
+       In the vertical direction, the line-height can combine with the font
+       asender/descender height to produce scrollbars: hidden avoids that. */
+    overflow: auto hidden;
+  }
+  pre {
+    max-width: 100%;
+    width: calc(100% - 22px - 1em);
+  }
+  svg {
+    max-width: calc(100% - 22px - 1em);
+  }
+  figure pre {
+    display: block;
+    width: calc(100% - 25px);
+  }
+  :is(pre, svg) + .pilcrow {
+    display: inline-block;
+    vertical-align: text-bottom;
+    padding-bottom: 8px;
+  }
+}
+
+/* aside, blockquote */
+aside, blockquote {
+  margin-left: 0;
+  padding: 0 2em;
+  font-style: italic;
+}
+blockquote {
+  margin: 1em 0;
+}
+cite {
+  display: block;
+  text-align: right;
+  font-style: italic;
+}
+
+/* tables */
+table {
+  width: auto;
+  max-width: 100%;
+  margin: 0 0 1em;
+  border-collapse: collapse;
+}
+table.right {
+  margin-left: auto;
+}
+table.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+table.left {
+  margin-right: auto;
+}
+table .text-left {
+  text-align: left;
+}
+table .text-center {
+  text-align: center;
+}
+table .text-right {
+  text-align: right;
+}
+
+thead, tbody {
+  border: 1px solid var(--line-color);
+}
+th, td {
+  text-align: left;
+  vertical-align: top;
+  padding: 5px 10px;
+}
+th {
+  background-color: var(--line-color);
+}
+:is(tr:nth-child(2n), thead+tbody > tr:nth-child(2n+1)) > td {
+  background-color: var(--background-color);
+}
+:is(tr:nth-child(2n+1), thead+tbody > tr:nth-child(2n)) > td {
+  background-color: var(--highlight-color);
+}
+table caption {
+  margin: 0;
+  padding: 3px 0 3px 1em;
+}
+table p {
+  margin: 0;
+}
+
+/* pilcrow */
+a.pilcrow {
+  margin-left: 3px;
+  opacity: 0.2;
+  user-select: none;
+  &[href] {
+    color: var(--pilcrow-weak);
+    &:hover { text-decoration: none; }
+  }
+}
+@media not print {
+  :hover > a.pilcrow {
+    opacity: 1;
+  }
+  a.pilcrow[href]:hover {
+    color: var(--pilcrow-strong);
+    background-color: transparent;
+  }
+}
+@media print {
+  a.pilcrow {
+    display: none;
+  }
+}
+
+/* misc */
+hr {
+  border: 0;
+  border-top: 1px solid var(--line-color);
+}
+.bcp14 {
+  font-variant: small-caps;
+  font-weight: 600;
+  font-size: var(--small-font-size);
+}
+.role {
+  font-variant: all-small-caps;
+}
+sub, sup {
+  line-height: 1;
+  font-size: 80%;
+}
+
+/* info block */
+#identifiers {
+  margin: 0;
+  font-size: var(--small-font-size);
+  line-height: 18px;
+  --identifier-width: 15ch;
+  & dt {
+    width: var(--identifier-width);
+    min-width: var(--identifier-width);
+    clear: left;
+    float: left;
+    text-align: right;
+    margin-right: 1ch;
+  }
+  & dd {
+    margin: 0;
+    margin-left: calc(1em + var(--identifier-width)) !important;
+    min-width: 5em;
+  }
+  & .authors {
+    & .author {
+      display: inline-block;
+      margin-right: 1.5em;
+    }
+    & .org {
+      font-style: italic;
+    }
+  }
+}
+
+/* The prepared/rendered info at the very bottom of the page */
+.docInfo {
+  color: #999;
+  font-size: 0.9em;
+  font-style: italic;
+  margin-top: 2em;
+}
+.docInfo .prepared {
+  float: right;
+}
+
+/* table of contents */
+#toc {
+  padding: 0.75em 0 2em 0;
+  margin-bottom: 1em;
+
+  & nav {
+    & ul {
+      margin: 0 0.5em 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    & li {
+      line-height: 1.3em;
+      margin: 2px 0;
+      padding-left: 1.2em;
+      text-indent: -1.2em;
+    }
+  }
+  & a.xref {
+    white-space: normal;
+  }
+}
+
+.references {
+  & > dt {
+    text-align: right;
+    font-weight: bold;
+    min-width: 10ch;
+    margin-right: 1.5ch;
+    &:target::before {
+      content: "⇒";
+      margin: 0 10px 0 -25px;
+    }
+  }
+  & > dd {
+    margin-left: 12ch !important;
+    overflow: visible;
+    & .refInstance {
+      margin-bottom: 0.8em;
+    }
+    & .ascii {
+      margin-bottom: 0.25em;
+    }
+  }
+}
+
+#rfc\.index\.index + ul {
+  margin-left: 0;
+}
+
+/* authors */
+address.vcard {
+  font-style: normal;
+  max-width: 20em;
+  margin: 1em auto 1em 0;
+
+  & .nameRole {
+    font-weight: 700;
+    margin-left: 0;
+  }
+  & .label {
+    margin: 0.5em 0;
+  }
+  & .type {
+    display: none;
+  }
+  & .alternative-contact {
+    margin: 0.5em 0 0.25em 0;
+  }
+  & .non-ascii {
+    margin: 0 0 0 2em;
+  }
+  & div.left {
+    text-align: left;
+  }
+  & div.right {
+    text-align: right;
+  }
+}
+
+hr.addr {
+  border-top: 1px dashed;
+  margin: 0;
+  color: #ddd;
+  max-width: calc(100% - 16px);
+}
+@media (min-width: 500px) {
+  #authors-addresses > section {
+    column-count: 2;
+    column-gap: 20px;
+  }
+  #authors-addresses > section > h2 {
+    column-span: all;
+  }
+  /* hack for break-inside: avoid-column */
+  #authors-addresses address {
+    display: inline-block;
+    break-inside: avoid-column;
+  }
+}
+
+/* Comments */
+.rfcEditorRemove p:first-of-type {
+  font-style: italic;
+}
+.cref {
+  background-color: rgba(249, 232, 105, 0.3);
+  padding: 2px 4px;
+}
+.crefSource {
+  font-style: italic;
+}
+
+@media screen {
+  #toc nav {
+    font-family: var(--font-title);
+    font-weight: 360;
+    & > ul { margin-bottom: 2em; }
+    & ul {
+      margin: 0 0 0 4px;
+      & :is(p, li) {
+        margin: 2px 0;
+      }
+    }
+  }
+  #toc a.toplink {
+    float: right;
+  }
+}
+@media not screen {
+  #toc a.toplink {
+    display: none;
+  }
+}
+
+
+/* TOC layout for smaller screens */
+@media screen and (max-width: 929px) {
+  #toc {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    padding: 1px 0 0 0;
+    margin: 0;
+    border-bottom: 1px solid #ccc;
+    opacity: 0.6;
+  }
+  #toc h2 {
+    margin: 0;
+    padding: 2px 0 2px 6px;
+    padding-right: 1em;
+    font-size: 18px;
+    line-height: 24px;
+    min-width: 190px;
+    text-align: right;
+    background-color: #444;
+    color: white;
+    cursor: pointer;
+    &::before { /* css hamburger */
+      float: right;
+      position: relative;
+      width: 1em;
+      height: 1px;
+      left: -164px;
+      margin: 8px 0 0 0;
+      background: white none repeat scroll 0 0;
+      box-shadow: 0 4px 0 0 white, 0 8px 0 0 white;
+      content: "";
+    }
+  }
+  #toc nav {
+    display: none;
+    background-color: var(--background-color);
+    padding: 0.5em 1em 1em;
+    overflow: auto;
+    overscroll-behavior: contain;
+    height: calc(100vh - 48px);
+    border-left: 1px solid #ddd;
+  }
+  #toc.active {
+    opacity: 1;
+    & nav { display: block; }
+  }
+  /* Make the collapsed ToC header render white on gray also when it's a link */
+  #toc h2 a,
+  #toc h2 a:is(:link, :focus, :hover),
+  #toc a.toplink,
+  #toc a.toplink:hover {
+    color: white;
+    background-color: #444;
+    text-decoration: none;
+  }
+  #toc a.toplink {
+    margin: 2px 0.5em 0;
+  }
+}
+
+/* TOC layout for wide screens */
+@media screen and (min-width: 930px) {
+  body {
+    padding-right: 360px;
+    padding-right: calc(min(180px + 20%, 500px));
+  }
+  #toc {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    right: calc(50vw - 480px);
+    width: 312px;
+    margin: 0;
+    padding: 0;
+    z-index: 1;
+  }
+  #toc h2 {
+    margin: 0;
+    padding: 0.25em 1em 1em 0;
+  }
+  #toc nav {
+    display: block;
+    height: calc(90vh - 84px);
+    bottom: 0;
+    padding: 0.5em 0 2em;
+    overflow: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+  }
+  img { /* future proofing */
+    max-width: 100%;
+    height: auto;
+  }
+  #toc a.toplink {
+    margin: 8px 0.5em 0;
+  }
+}
+
+/* pagination */
+@media print {
+  body {
+    width: 100%;
+  }
+  p {
+    orphans: 3;
+    widows: 3;
+  }
+  #n-copyright-notice {
+    border-bottom: none;
+  }
+  #toc, #n-introduction {
+    page-break-before: always;
+  }
+  #toc {
+    border-top: none;
+    padding-top: 0;
+  }
+  figure, pre, .vcard {
+    page-break-inside: avoid;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+  }
+  :is(h2, h3, h4, h5, h6)+*, dd {
+    page-break-before: avoid;
+  }
+  pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-size: 10pt;
+  }
+  table {
+    border: 1px solid #ddd;
+  }
+  td {
+    border-top: 1px solid #ddd;
+  }
+}
+
+@page :first {
+  padding-top: 0;
+  @top-left {
+    content: normal;
+    border: none;
+  }
+  @top-center {
+    content: normal;
+    border: none;
+  }
+  @top-right {
+    content: normal;
+    border: none;
+  }
+}
+
+@page {
+  size: A4;
+  margin-bottom: 45mm;
+  padding-top: 20px;
+}
+
+/* Dark mode. */
+@media (prefers-color-scheme: dark) {
+:root {
+  --background-color: #121212;
+  --text-color: #f0f0f0;
+  --title-color: #fff;
+  --link-color: #4da4f0;
+  --highlight-color: #282828;
+  --line-color: #444;
+  --pilcrow-weak: #444;
+  --pilcrow-strong: #666;
+  scrollbar-color: #777 #333;
+}
+}
+
+/* SVG Trick: a prefix match works because only black and white are allowed */
+svg :is([stroke="black"], [stroke^="#000"]) {
+  stroke: var(--text-color);
+}
+svg :is([stroke="white"], [stroke^="#fff"]) {
+  stroke: var(--background-color);
+}
+svg :is([fill="black"], [fill^="#000"], :not([fill])) {
+  fill: var(--text-color);
+}
+svg :is([fill="white"], [fill^="#fff"]) {
+  fill: var(--background-color);
+}
+</style>
+
+</head>
+<body class="xml2rfc">
+<table class="ears">
+<thead><tr>
+<td class="left">Internet-Draft</td>
+<td class="center">public-funder-guide</td>
+<td class="right">August 2025</td>
+</tr></thead>
+<tfoot><tr>
+<td class="left">Tarakiyee</td>
+<td class="center">Expires 23 February 2026</td>
+<td class="right">[Page]</td>
+</tr></tfoot>
+</table>
+<div id="external-metadata" class="document-information"></div>
+<div id="internal-metadata" class="document-information">
+<dl id="identifiers">
+<dt class="label-workgroup">Workgroup:</dt>
+<dd class="workgroup">Network Working Group</dd>
+<dt class="label-internet-draft">Internet-Draft:</dt>
+<dd class="internet-draft">draft-tarakiyee-funder-guide-latest</dd>
+<dt class="label-published">Published:</dt>
+<dd class="published">
+<time datetime="2025-08-22" class="published">22 August 2025</time>
+    </dd>
+<dt class="label-intended-status">Intended Status:</dt>
+<dd class="intended-status">Informational</dd>
+<dt class="label-expires">Expires:</dt>
+<dd class="expires"><time datetime="2026-02-23">23 February 2026</time></dd>
+<dt class="label-authors">Author:</dt>
+<dd class="authors">
+<div class="author">
+      <div class="author-name">T. Tarakiyee</div>
+<div class="org">Sovereign Tech Agency</div>
+</div>
+</dd>
+</dl>
+</div>
+<h1 id="title">Evaluating Technical Standards in the Public Interest: A Guide for Public Funding Organizations</h1>
+<section id="section-abstract">
+      <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
+<p id="section-abstract-1">Technical standards are agreements that make the Internet and digital technologies work. This document helps public funding organizations understand and evaluate opportunities to invest in standards development. Drawing from decades of Internet Engineering Task Force (IETF) experience documented across numerous RFCs, it explains key concepts like interoperability, rough consensus, and running code while providing practical frameworks for assessment. The guide emphasizes that successful standards require not just technical excellence but also open processes, real implementations, and consideration of human rights and social impact. It tries to provide concrete evaluation criteria while remaining accessible to funders new to standards work.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+</section>
+<section class="note rfcEditorRemove" id="section-note.1">
+      <h2 id="name-about-this-document">
+<a href="#name-about-this-document" class="section-name selfRef">About This Document</a>
+      </h2>
+<p id="section-note.1-1">This note is to be removed before publishing as an RFC.<a href="#section-note.1-1" class="pilcrow">¶</a></p>
+<p id="section-note.1-2">
+        The latest revision of this draft can be found at <span><a href="https://tarakiyee.github.io/funder-guide-draft/draft-tarakiyee-funder-guide.html">https://tarakiyee.github.io/funder-guide-draft/draft-tarakiyee-funder-guide.html</a></span>.
+        Status information for this document may be found at <span><a href="https://datatracker.ietf.org/doc/draft-tarakiyee-funder-guide/">https://datatracker.ietf.org/doc/draft-tarakiyee-funder-guide/</a></span>.<a href="#section-note.1-2" class="pilcrow">¶</a></p>
+<p id="section-note.1-3">Source for this draft and an issue tracker can be found at
+        <span><a href="https://github.com/tarakiyee/funder-guide-draft">https://github.com/tarakiyee/funder-guide-draft</a></span>.<a href="#section-note.1-3" class="pilcrow">¶</a></p>
+</section>
+<div id="status-of-memo">
+<section id="section-boilerplate.1">
+        <h2 id="name-status-of-this-memo">
+<a href="#name-status-of-this-memo" class="section-name selfRef">Status of This Memo</a>
+        </h2>
+<p id="section-boilerplate.1-1">
+        This Internet-Draft is submitted in full conformance with the
+        provisions of BCP 78 and BCP 79.<a href="#section-boilerplate.1-1" class="pilcrow">¶</a></p>
+<p id="section-boilerplate.1-2">
+        Internet-Drafts are working documents of the Internet Engineering Task
+        Force (IETF). Note that other groups may also distribute working
+        documents as Internet-Drafts. The list of current Internet-Drafts is
+        at <span><a href="https://datatracker.ietf.org/drafts/current/">https://datatracker.ietf.org/drafts/current/</a></span>.<a href="#section-boilerplate.1-2" class="pilcrow">¶</a></p>
+<p id="section-boilerplate.1-3">
+        Internet-Drafts are draft documents valid for a maximum of six months
+        and may be updated, replaced, or obsoleted by other documents at any
+        time. It is inappropriate to use Internet-Drafts as reference
+        material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
+<p id="section-boilerplate.1-4">
+        This Internet-Draft will expire on 23 February 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="copyright">
+<section id="section-boilerplate.2">
+        <h2 id="name-copyright-notice">
+<a href="#name-copyright-notice" class="section-name selfRef">Copyright Notice</a>
+        </h2>
+<p id="section-boilerplate.2-1">
+            Copyright (c) 2025 IETF Trust and the persons identified as the
+            document authors. All rights reserved.<a href="#section-boilerplate.2-1" class="pilcrow">¶</a></p>
+<p id="section-boilerplate.2-2">
+            This document is subject to BCP 78 and the IETF Trust's Legal
+            Provisions Relating to IETF Documents
+            (<span><a href="https://trustee.ietf.org/license-info">https://trustee.ietf.org/license-info</a></span>) in effect on the date of
+            publication of this document. Please review these documents
+            carefully, as they describe your rights and restrictions with
+            respect to this document.<a href="#section-boilerplate.2-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="toc">
+<section id="section-toc.1">
+        <a href="#" onclick="scroll(0,0)" class="toplink">▲</a><h2 id="name-table-of-contents">
+<a href="#name-table-of-contents" class="section-name selfRef">Table of Contents</a>
+        </h2>
+<nav class="toc"><ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1">
+            <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="auto internal xref">1</a>.  <a href="#name-introduction" class="internal xref">Introduction</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.1">
+                <p id="section-toc.1-1.1.2.1.1" class="keepWithNext"><a href="#section-1.1" class="auto internal xref">1.1</a>.  <a href="#name-why-public-funding-for-stan" class="internal xref">Why Public Funding for Standards Matters</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.2">
+                <p id="section-toc.1-1.1.2.2.1" class="keepWithNext"><a href="#section-1.2" class="auto internal xref">1.2</a>.  <a href="#name-document-structure-and-appr" class="internal xref">Document Structure and Approach</a></p>
+</li>
+            </ul>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2">
+            <p id="section-toc.1-1.2.1"><a href="#section-2" class="auto internal xref">2</a>.  <a href="#name-understanding-technical-sta" class="internal xref">Understanding Technical Standards</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.1">
+                <p id="section-toc.1-1.2.2.1.1"><a href="#section-2.1" class="auto internal xref">2.1</a>.  <a href="#name-what-standards-actually-do" class="internal xref">What Standards Actually Do</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.2">
+                <p id="section-toc.1-1.2.2.2.1"><a href="#section-2.2" class="auto internal xref">2.2</a>.  <a href="#name-the-standards-development-l" class="internal xref">The Standards Development Lifecycle</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.3">
+                <p id="section-toc.1-1.2.2.3.1"><a href="#section-2.3" class="auto internal xref">2.3</a>.  <a href="#name-standards-organizations-and" class="internal xref">Standards Organizations and Their Approaches</a></p>
+</li>
+            </ul>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3">
+            <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-the-ietf-model" class="internal xref">The IETF Model</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1">
+                <p id="section-toc.1-1.3.2.1.1"><a href="#section-3.1" class="auto internal xref">3.1</a>.  <a href="#name-the-mission-making-the-inte" class="internal xref">The Mission: Making the Internet Work Better</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2">
+                <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="auto internal xref">3.2</a>.  <a href="#name-rough-consensus-and-running" class="internal xref">Rough Consensus and Running Code</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3">
+                <p id="section-toc.1-1.3.2.3.1"><a href="#section-3.3" class="auto internal xref">3.3</a>.  <a href="#name-open-process-and-participat" class="internal xref">Open Process and Participation</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.4">
+                <p id="section-toc.1-1.3.2.4.1"><a href="#section-3.4" class="auto internal xref">3.4</a>.  <a href="#name-the-end-to-end-principle-an" class="internal xref">The End-to-End Principle and User Focus</a></p>
+</li>
+            </ul>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
+            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-evaluating-standards-a-prac" class="internal xref">Evaluating Standards: A Practical Framework</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1">
+                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="auto internal xref">4.1</a>.  <a href="#name-technical-excellence" class="internal xref">Technical Excellence</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.1">
+                    <p id="section-toc.1-1.4.2.1.2.1.1"><a href="#section-4.1.1" class="auto internal xref">4.1.1</a>.  <a href="#name-implementation-requirements" class="internal xref">Implementation Requirements</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.2">
+                    <p id="section-toc.1-1.4.2.1.2.2.1"><a href="#section-4.1.2" class="auto internal xref">4.1.2</a>.  <a href="#name-deployment-feasibility" class="internal xref">Deployment Feasibility</a></p>
+</li>
+                </ul>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2">
+                <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="auto internal xref">4.2</a>.  <a href="#name-process-openness" class="internal xref">Process Openness</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.1">
+                    <p id="section-toc.1-1.4.2.2.2.1.1"><a href="#section-4.2.1" class="auto internal xref">4.2.1</a>.  <a href="#name-the-openstand-principles" class="internal xref">The OpenStand Principles</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.2">
+                    <p id="section-toc.1-1.4.2.2.2.2.1"><a href="#section-4.2.2" class="auto internal xref">4.2.2</a>.  <a href="#name-consensus-building" class="internal xref">Consensus Building</a></p>
+</li>
+                </ul>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.3">
+                <p id="section-toc.1-1.4.2.3.1"><a href="#section-4.3" class="auto internal xref">4.3</a>.  <a href="#name-intellectual-property-consi" class="internal xref">Intellectual Property Considerations</a></p>
+</li>
+            </ul>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
+            <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-human-rights-and-social-imp" class="internal xref">Human Rights and Social Impact</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.1">
+                <p id="section-toc.1-1.5.2.1.1"><a href="#section-5.1" class="auto internal xref">5.1</a>.  <a href="#name-the-evolution-toward-human-" class="internal xref">The Evolution Toward Human Rights Considerations</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2">
+                <p id="section-toc.1-1.5.2.2.1"><a href="#section-5.2" class="auto internal xref">5.2</a>.  <a href="#name-privacy-as-a-fundamental-co" class="internal xref">Privacy as a Fundamental Consideration</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.3">
+                <p id="section-toc.1-1.5.2.3.1"><a href="#section-5.3" class="auto internal xref">5.3</a>.  <a href="#name-accessibility-and-inclusion" class="internal xref">Accessibility and Inclusion</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.4">
+                <p id="section-toc.1-1.5.2.4.1"><a href="#section-5.4" class="auto internal xref">5.4</a>.  <a href="#name-practical-assessment-questi" class="internal xref">Practical Assessment Questions</a></p>
+</li>
+            </ul>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
+            <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-following-standards-work" class="internal xref">Following Standards Work</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.1">
+                <p id="section-toc.1-1.6.2.1.1"><a href="#section-6.1" class="auto internal xref">6.1</a>.  <a href="#name-understanding-ietf-document" class="internal xref">Understanding IETF Documentation</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.2">
+                <p id="section-toc.1-1.6.2.2.1"><a href="#section-6.2" class="auto internal xref">6.2</a>.  <a href="#name-information-sources" class="internal xref">Information Sources</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.2.2.1">
+                    <p id="section-toc.1-1.6.2.2.2.1.1"><a href="#section-6.2.1" class="auto internal xref">6.2.1</a>.  <a href="#name-official-ietf-resources" class="internal xref">Official IETF Resources</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.2.2.2">
+                    <p id="section-toc.1-1.6.2.2.2.2.1"><a href="#section-6.2.2" class="auto internal xref">6.2.2</a>.  <a href="#name-key-documents-to-review" class="internal xref">Key Documents to Review</a></p>
+</li>
+                </ul>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.3">
+                <p id="section-toc.1-1.6.2.3.1"><a href="#section-6.3" class="auto internal xref">6.3</a>.  <a href="#name-engagement-strategies" class="internal xref">Engagement Strategies</a></p>
+</li>
+            </ul>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7">
+            <p id="section-toc.1-1.7.1"><a href="#section-7" class="auto internal xref">7</a>.  <a href="#name-common-pitfalls-and-how-to-" class="internal xref">Common Pitfalls and How to Avoid Them</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.1">
+                <p id="section-toc.1-1.7.2.1.1"><a href="#section-7.1" class="auto internal xref">7.1</a>.  <a href="#name-the-build-it-and-they-will-" class="internal xref">The "Build It and They Will Come" Fallacy</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.2">
+                <p id="section-toc.1-1.7.2.2.1"><a href="#section-7.2" class="auto internal xref">7.2</a>.  <a href="#name-vendor-capture" class="internal xref">Vendor Capture</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.3">
+                <p id="section-toc.1-1.7.2.3.1"><a href="#section-7.3" class="auto internal xref">7.3</a>.  <a href="#name-complexity-creep" class="internal xref">Complexity Creep</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.4">
+                <p id="section-toc.1-1.7.2.4.1"><a href="#section-7.4" class="auto internal xref">7.4</a>.  <a href="#name-ignoring-existing-practice" class="internal xref">Ignoring Existing Practice</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.5">
+                <p id="section-toc.1-1.7.2.5.1"><a href="#section-7.5" class="auto internal xref">7.5</a>.  <a href="#name-premature-standardization" class="internal xref">Premature Standardization</a></p>
+</li>
+            </ul>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8">
+            <p id="section-toc.1-1.8.1"><a href="#section-8" class="auto internal xref">8</a>.  <a href="#name-recommendations-for-public-" class="internal xref">Recommendations for Public Funders</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8.2.1">
+                <p id="section-toc.1-1.8.2.1.1"><a href="#section-8.1" class="auto internal xref">8.1</a>.  <a href="#name-essential-requirements" class="internal xref">Essential Requirements</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8.2.2">
+                <p id="section-toc.1-1.8.2.2.1"><a href="#section-8.2" class="auto internal xref">8.2</a>.  <a href="#name-evaluation-process" class="internal xref">Evaluation Process</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8.2.3">
+                <p id="section-toc.1-1.8.2.3.1"><a href="#section-8.3" class="auto internal xref">8.3</a>.  <a href="#name-investment-strategies" class="internal xref">Investment Strategies</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8.2.3.2.1">
+                    <p id="section-toc.1-1.8.2.3.2.1.1"><a href="#section-8.3.1" class="auto internal xref">8.3.1</a>.  <a href="#name-supporting-public-interest-" class="internal xref">Supporting Public Interest Participation</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8.2.3.2.2">
+                    <p id="section-toc.1-1.8.2.3.2.2.1"><a href="#section-8.3.2" class="auto internal xref">8.3.2</a>.  <a href="#name-direct-standards-developmen" class="internal xref">Direct Standards Development</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8.2.3.2.3">
+                    <p id="section-toc.1-1.8.2.3.2.3.1"><a href="#section-8.3.3" class="auto internal xref">8.3.3</a>.  <a href="#name-ecosystem-support" class="internal xref">Ecosystem Support</a></p>
+</li>
+                </ul>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8.2.4">
+                <p id="section-toc.1-1.8.2.4.1"><a href="#section-8.4" class="auto internal xref">8.4</a>.  <a href="#name-success-metrics" class="internal xref">Success Metrics</a></p>
+</li>
+            </ul>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9">
+            <p id="section-toc.1-1.9.1"><a href="#section-9" class="auto internal xref">9</a>.  <a href="#name-conclusion" class="internal xref">Conclusion</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10">
+            <p id="section-toc.1-1.10.1"><a href="#section-10" class="auto internal xref">10</a>. <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11">
+            <p id="section-toc.1-1.11.1"><a href="#section-11" class="auto internal xref">11</a>. <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.12">
+            <p id="section-toc.1-1.12.1"><a href="#section-12" class="auto internal xref">12</a>. <a href="#name-references" class="internal xref">References</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.12.2.1">
+                <p id="section-toc.1-1.12.2.1.1"><a href="#section-12.1" class="auto internal xref">12.1</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.12.2.2">
+                <p id="section-toc.1-1.12.2.2.1"><a href="#section-12.2" class="auto internal xref">12.2</a>.  <a href="#name-informative-references" class="internal xref">Informative References</a></p>
+</li>
+            </ul>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.13">
+            <p id="section-toc.1-1.13.1"><a href="#appendix-A" class="auto internal xref"></a><a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.14">
+            <p id="section-toc.1-1.14.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-authors-address" class="internal xref">Author's Address</a></p>
+</li>
+        </ul>
+</nav>
+</section>
+</div>
+<div id="introduction">
+<section id="section-1">
+      <h2 id="name-introduction">
+<a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
+      </h2>
+<p id="section-1-1">Technical standards shape our digital world. They enable that your phone can connect to any WiFi network your email reaches its destination regardless of provider, and websites look the same across different browsers. For public funding organizations, understanding standards is important  because standards decisions made today affect digital infrastructure for decades and can often have societal implications beyond technical correctness.<a href="#section-1-1" class="pilcrow">¶</a></p>
+<p id="section-1-2">This guide synthesizes lessons from the Internet Engineering Task Force (IETF). The IETF's approach, which is documented across thousands of documents called RFCs (Requests for Comments), offers practical principles that can be useful for evaluating whether a standards project merits public investment.<a href="#section-1-2" class="pilcrow">¶</a></p>
+<div id="why-public-funding-for-standards-matters">
+<section id="section-1.1">
+        <h3 id="name-why-public-funding-for-stan">
+<a href="#section-1.1" class="section-number selfRef">1.1. </a><a href="#name-why-public-funding-for-stan" class="section-name selfRef">Why Public Funding for Standards Matters</a>
+        </h3>
+<p id="section-1.1-1">Public funding plays two critical roles in standards development:<a href="#section-1.1-1" class="pilcrow">¶</a></p>
+<p id="section-1.1-2"><strong>Ensuring Public Interest Representation</strong>: Even commercially viable standards need public interest voices. Industry participants naturally focus on their business needs, but standards affect everyone, from everyday users, civil society, researchers, and most importantly communities who may lack resources or proximity to technical standard production to participate. Public funding can:<a href="#section-1.1-2" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-1.1-3.1">
+            <p id="section-1.1-3.1.1">Support participation by public interest advocates<a href="#section-1.1-3.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-1.1-3.2">
+            <p id="section-1.1-3.2.1">Fund privacy and human rights impact assessments<a href="#section-1.1-3.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-1.1-3.3">
+            <p id="section-1.1-3.3.1">Enable attendance at crucial in-person meetings<a href="#section-1.1-3.3.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-1.1-3.4">
+            <p id="section-1.1-3.4.1">Ensure accessibility and internationalization reviews<a href="#section-1.1-3.4.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-1.1-3.5">
+            <p id="section-1.1-3.5.1">Bring in voices from underserved communities<a href="#section-1.1-3.5.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+<p id="section-1.1-4"><strong>Addressing Market Failures</strong>: Some essential standards lack commercial incentives entirely:<a href="#section-1.1-4" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-1.1-5.1">
+            <p id="section-1.1-5.1.1"><strong>Public goods</strong>: Standards that benefit everyone but generate no direct revenue (like security protocols that protect personal privacy)<a href="#section-1.1-5.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-1.1-5.2">
+            <p id="section-1.1-5.2.1"><strong>Coordination problems</strong>: Standards requiring simultaneous adoption by competitors not willing to work with each other.<a href="#section-1.1-5.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-1.1-5.3">
+            <p id="section-1.1-5.3.1"><strong>Long-term infrastructure</strong>: Standards whose benefits appear over decades rather than quarterly earnings cycles.<a href="#section-1.1-5.3.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-1.1-5.4">
+            <p id="section-1.1-5.4.1"><strong>Underserved communities</strong>: Standards addressing needs of users who lack market power.<a href="#section-1.1-5.4.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+<p id="section-1.1-6">Strategic public investment ensures standards serve society's needs, not just commercial interests.<a href="#section-1.1-6" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="document-structure-and-approach">
+<section id="section-1.2">
+        <h3 id="name-document-structure-and-appr">
+<a href="#section-1.2" class="section-number selfRef">1.2. </a><a href="#name-document-structure-and-appr" class="section-name selfRef">Document Structure and Approach</a>
+        </h3>
+<p id="section-1.2-1">This document provides:<a href="#section-1.2-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-1.2-2.1">
+            <p id="section-1.2-2.1.1">Core concepts essential for understanding standards (<a href="#concepts" class="auto internal xref">Section 2</a>)<a href="#section-1.2-2.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-1.2-2.2">
+            <p id="section-1.2-2.2.1">The IETF model and its key principles (<a href="#ietf-model" class="auto internal xref">Section 3</a>)<a href="#section-1.2-2.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-1.2-2.3">
+            <p id="section-1.2-2.3.1">Practical evaluation criteria for funding decisions (<a href="#evaluation" class="auto internal xref">Section 4</a>)<a href="#section-1.2-2.3.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-1.2-2.4">
+            <p id="section-1.2-2.4.1">Human rights and social considerations (<a href="#human-rights" class="auto internal xref">Section 5</a>)<a href="#section-1.2-2.4.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-1.2-2.5">
+            <p id="section-1.2-2.5.1">Methods for following standards development (<a href="#followingwork" class="auto internal xref">Section 6</a>)<a href="#section-1.2-2.5.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-1.2-2.6">
+            <p id="section-1.2-2.6.1">Common pitfalls and how to avoid them (<a href="#pitfalls" class="auto internal xref">Section 7</a>)<a href="#section-1.2-2.6.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-1.2-2.7">
+            <p id="section-1.2-2.7.1">Concrete recommendations for funders (<a href="#recommendations" class="auto internal xref">Section 8</a>)<a href="#section-1.2-2.7.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+<p id="section-1.2-3">I tried to reference specific RFCs when possible, not to overwhelm with citations but to show that these principles emerge from the decades of practical experience documented by the IETF.<a href="#section-1.2-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="concepts">
+<section id="section-2">
+      <h2 id="name-understanding-technical-sta">
+<a href="#section-2" class="section-number selfRef">2. </a><a href="#name-understanding-technical-sta" class="section-name selfRef">Understanding Technical Standards</a>
+      </h2>
+<div id="what-standards-actually-do">
+<section id="section-2.1">
+        <h3 id="name-what-standards-actually-do">
+<a href="#section-2.1" class="section-number selfRef">2.1. </a><a href="#name-what-standards-actually-do" class="section-name selfRef">What Standards Actually Do</a>
+        </h3>
+<p id="section-2.1-1">Technical standards are documented agreements about how technology should work. They're not software or hardware themselves, but rather the specifications that allow different implementations to work together. Consider email: <span>[<a href="#RFC5321" class="cite xref">RFC5321</a>]</span> defines how email servers transfer messages, while <span>[<a href="#RFC5322" class="cite xref">RFC5322</a>]</span> defines the message format. Any software following these specifications can exchange email with any other conforming software.<a href="#section-2.1-1" class="pilcrow">¶</a></p>
+<p id="section-2.1-2">This <strong>interoperability</strong> is the fundamental purpose of standards. It is absolutely neccesary for a global internet to work.<a href="#section-2.1-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="the-standards-development-lifecycle">
+<section id="section-2.2">
+        <h3 id="name-the-standards-development-l">
+<a href="#section-2.2" class="section-number selfRef">2.2. </a><a href="#name-the-standards-development-l" class="section-name selfRef">The Standards Development Lifecycle</a>
+        </h3>
+<p id="section-2.2-1">Standards typically evolve through several phases:<a href="#section-2.2-1" class="pilcrow">¶</a></p>
+<ol start="1" type="1" class="normal type-1" id="section-2.2-2">
+<li id="section-2.2-2.1">
+            <p id="section-2.2-2.1.1"><strong>Problem Identification</strong>: Recognition that standardization could solve a coordination problem or enable new capabilities<a href="#section-2.2-2.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li id="section-2.2-2.2">
+            <p id="section-2.2-2.2.1"><strong>Experimentation</strong>: Building prototypes and testing different approaches (what the IETF calls "running code")<a href="#section-2.2-2.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li id="section-2.2-2.3">
+            <p id="section-2.2-2.3.1"><strong>Specification</strong>: Writing down how the technology works in sufficient detail for independent implementation<a href="#section-2.2-2.3.1" class="pilcrow">¶</a></p>
+</li>
+          <li id="section-2.2-2.4">
+            <p id="section-2.2-2.4.1"><strong>Implementation and Testing</strong>: Multiple parties build implementations and verify they work together<a href="#section-2.2-2.4.1" class="pilcrow">¶</a></p>
+</li>
+          <li id="section-2.2-2.5">
+            <p id="section-2.2-2.5.1"><strong>Deployment</strong>: Real-world adoption, revealing issues that need refinement<a href="#section-2.2-2.5.1" class="pilcrow">¶</a></p>
+</li>
+          <li id="section-2.2-2.6">
+            <p id="section-2.2-2.6.1"><strong>Maintenance</strong>: Updating the standard based on experience, fixing errors, adding needed features<a href="#section-2.2-2.6.1" class="pilcrow">¶</a></p>
+</li>
+        </ol>
+<p id="section-2.2-3">The IETF formalizes this in <span>[<a href="#RFC2026" class="cite xref">RFC2026</a>]</span> "The Internet Standards Process," which requires demonstrating "sufficient successful operational experience" before advancing standards. This means standards must prove themselves in reality, not just theory.<a href="#section-2.2-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="standards-organizations-and-their-approaches">
+<section id="section-2.3">
+        <h3 id="name-standards-organizations-and">
+<a href="#section-2.3" class="section-number selfRef">2.3. </a><a href="#name-standards-organizations-and" class="section-name selfRef">Standards Organizations and Their Approaches</a>
+        </h3>
+<p id="section-2.3-1">There are several technical standards organisations and they don't all operate the same way. It's important for funders to understand this to determine the most effective way to engage with the standards process. While this guide primarily focuses on the IETF, it's important to note this here to give the full picture.<a href="#section-2.3-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-2.3-2.1">
+            <p id="section-2.3-2.1.1"><strong>IETF</strong>: Emphasizes "rough consensus and running code," open participation, and voluntary adoption.<a href="#section-2.3-2.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-2.3-2.2">
+            <p id="section-2.3-2.2.1"><strong>W3C</strong>: A vendor forum focused on web standards, strong industry membership and stringent patent policies.<a href="#section-2.3-2.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-2.3-2.3">
+            <p id="section-2.3-2.3.1"><strong>IEEE</strong>: Develops standards through formal balloting processes with strict membership rules.<a href="#section-2.3-2.3.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-2.3-2.4">
+            <p id="section-2.3-2.4.1"><strong>ISO</strong>: Creates international standards through national body representation.<a href="#section-2.3-2.4.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+<p id="section-2.3-3">Understanding an organization's approach is important to help determine the appropriate engagement mechanisms (if any) to align their proccesses with public interest goals.<a href="#section-2.3-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="ietf-model">
+<section id="section-3">
+      <h2 id="name-the-ietf-model">
+<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-the-ietf-model" class="section-name selfRef">The IETF Model</a>
+      </h2>
+<div id="the-mission-making-the-internet-work-better">
+<section id="section-3.1">
+        <h3 id="name-the-mission-making-the-inte">
+<a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-the-mission-making-the-inte" class="section-name selfRef">The Mission: Making the Internet Work Better</a>
+        </h3>
+<p id="section-3.1-1"><span>[<a href="#RFC3935" class="cite xref">RFC3935</a>]</span> defines the IETF's mission: "to make the Internet work better by producing high quality, relevant technical and engineering documents that influence the way people design, use, and manage the Internet."
+- <strong>"Work better"</strong> points to the incremental approach of the IETF, not waiting for perfection.
+- <strong>Quality and relevance</strong> point to how IETF standards must be both technically sound and actually used in the real world.
+- <strong>Influence, not mandate</strong> highlights an important part of how IETF Standards work. They often succeed through voluntary adoption, however this doesn't stop national and international regulatory bodies from voluntarily adopting IETF standards in their regulation.<a href="#section-3.1-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="rough-consensus-and-running-code">
+<section id="section-3.2">
+        <h3 id="name-rough-consensus-and-running">
+<a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-rough-consensus-and-running" class="section-name selfRef">Rough Consensus and Running Code</a>
+        </h3>
+<p id="section-3.2-1">This foundational IETF principle, examined in <span>[<a href="#RFC7282" class="cite xref">RFC7282</a>]</span> "On Consensus and Humming in the IETF," means:<a href="#section-3.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.2-2"><strong>Rough Consensus</strong>: Decisions aren't made by voting but by addressing technical objections until most participants agree the result is acceptable. This prevents both single-party veto power and tyranny of the majority. As <span>[<a href="#RFC7282" class="cite xref">RFC7282</a>]</span> explains, consensus means "everyone has had their issues addressed, not necessarily accommodated."<a href="#section-3.2-2" class="pilcrow">¶</a></p>
+<p id="section-3.2-3"><strong>Running Code</strong>: Ideas must be validated through acutal software or hardware implementations. <span>[<a href="#RFC7942" class="cite xref">RFC7942</a>]</span> "Improving Awareness of Running Code" established practices for documenting implementation status, recognizing that standards developed without implementation experience often fail.<a href="#section-3.2-3" class="pilcrow">¶</a></p>
+<p id="section-3.2-4">Together, these principles ensure standards are both technically sound (through implementation experience) and broadly acceptable (through inclusive consensus building).<a href="#section-3.2-4" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="open-process-and-participation">
+<section id="section-3.3">
+        <h3 id="name-open-process-and-participat">
+<a href="#section-3.3" class="section-number selfRef">3.3. </a><a href="#name-open-process-and-participat" class="section-name selfRef">Open Process and Participation</a>
+        </h3>
+<p id="section-3.3-1"><span>[<a href="#RFC2026" class="cite xref">RFC2026</a>]</span> Section 6.5 establishes that IETF processes must be "open and fair" with "no more than a reasonable and non-discriminatory fee" for participation. <span>[<a href="#RFC9501" class="cite xref">RFC9501</a>]</span> strengthened this in 2023 by requiring free remote participation options, recognizing that economic barriers prevent global participation.<a href="#section-3.3-1" class="pilcrow">¶</a></p>
+<p id="section-3.3-2">However, openness in principle doesn't guarantee participation in practice. Despite free remote options, critical discussions often happen in person - during meeting breaks, over dinner, side meetings, or in hallway conversations. The IETF meets three times yearly in different global locations, and attending costs thousands of dollars per meeting, and that doesn't include interim meetings for specific work that happen in-between. This creates an invisible barrier where well-funded corporate participants have advantages over public interest advocates.<a href="#section-3.3-2" class="pilcrow">¶</a></p>
+<p id="section-3.3-3">The openness is meant to serve multiple purposes:<a href="#section-3.3-3" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-3.3-4.1">
+            <p id="section-3.3-4.1.1">Enables participation by affected stakeholders worldwide.<a href="#section-3.3-4.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-3.3-4.2">
+            <p id="section-3.3-4.2.1">Acts as a bulwark against capture by special interests<a href="#section-3.3-4.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-3.3-4.3">
+            <p id="section-3.3-4.3.1">Improves quality through diverse perspectives<a href="#section-3.3-4.3.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-3.3-4.4">
+            <p id="section-3.3-4.4.1">Builds legitimacy through inclusive processes<a href="#section-3.3-4.4.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+<p id="section-3.3-5">However achieving these benefits meaningfully and in practice requires concentrated effort, and for the purposes of this guide, adequtete funding.<a href="#section-3.3-5" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="the-end-to-end-principle-and-user-focus">
+<section id="section-3.4">
+        <h3 id="name-the-end-to-end-principle-an">
+<a href="#section-3.4" class="section-number selfRef">3.4. </a><a href="#name-the-end-to-end-principle-an" class="section-name selfRef">The End-to-End Principle and User Focus</a>
+        </h3>
+<p id="section-3.4-1"><span>[<a href="#RFC1958" class="cite xref">RFC1958</a>]</span> "Architectural Principles of the Internet" established that intelligence belongs at the network edges, not in the middle. This "end-to-end principle" means the network should be a simple, neutral pipe that doesn't constrain what users do with it.<a href="#section-3.4-1" class="pilcrow">¶</a></p>
+<p id="section-3.4-2"><span>[<a href="#RFC8890" class="cite xref">RFC8890</a>]</span> "The Internet is for End Users" made this explicit: when different parties' interests conflict, standards should prioritize end users over intermediaries like network operators or vendors. This principle helps resolve difficult trade-offs by asking "what serves users best?"<a href="#section-3.4-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="evaluation">
+<section id="section-4">
+      <h2 id="name-evaluating-standards-a-prac">
+<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-evaluating-standards-a-prac" class="section-name selfRef">Evaluating Standards: A Practical Framework</a>
+      </h2>
+<div id="technical-excellence">
+<section id="section-4.1">
+        <h3 id="name-technical-excellence">
+<a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-technical-excellence" class="section-name selfRef">Technical Excellence</a>
+        </h3>
+<div id="implementation-requirements">
+<section id="section-4.1.1">
+          <h4 id="name-implementation-requirements">
+<a href="#section-4.1.1" class="section-number selfRef">4.1.1. </a><a href="#name-implementation-requirements" class="section-name selfRef">Implementation Requirements</a>
+          </h4>
+<p id="section-4.1.1-1">Following <span>[<a href="#RFC2026" class="cite xref">RFC2026</a>]</span>'s advancement criteria, evaluate:<a href="#section-4.1.1-1" class="pilcrow">¶</a></p>
+<p id="section-4.1.1-2"><strong>Running Code</strong>: Are there working implementations? <span>[<a href="#RFC7942" class="cite xref">RFC7942</a>]</span> provides a framework for documenting implementation status:<a href="#section-4.1.1-2" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-4.1.1-3.1">
+              <p id="section-4.1.1-3.1.1">Research prototypes (proof of concept)<a href="#section-4.1.1-3.1.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-4.1.1-3.2">
+              <p id="section-4.1.1-3.2.1">Production implementations (deployed systems)<a href="#section-4.1.1-3.2.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-4.1.1-3.3">
+              <p id="section-4.1.1-3.3.1">Multiple independent implementations (true interoperability)<a href="#section-4.1.1-3.3.1" class="pilcrow">¶</a></p>
+</li>
+          </ul>
+<p id="section-4.1.1-4">Without running code, you're funding research, not standardization.<a href="#section-4.1.1-4" class="pilcrow">¶</a></p>
+<p id="section-4.1.1-5"><strong>Interoperability Testing</strong>: <span>[<a href="#RFC5657" class="cite xref">RFC5657</a>]</span> "Guidance on Interoperation and Implementation Reports" describes how to verify that independent implementations actually work together. Look for:<a href="#section-4.1.1-5" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-4.1.1-6.1">
+              <p id="section-4.1.1-6.1.1">Documented test results between implementations<a href="#section-4.1.1-6.1.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-4.1.1-6.2">
+              <p id="section-4.1.1-6.2.1">Public interoperability events<a href="#section-4.1.1-6.2.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-4.1.1-6.3">
+              <p id="section-4.1.1-6.3.1">Clear problem reports and resolutions<a href="#section-4.1.1-6.3.1" class="pilcrow">¶</a></p>
+</li>
+          </ul>
+<p id="section-4.1.1-7"><strong>Technical Quality</strong>: Does the specification demonstrate the technical excellence <span>[<a href="#RFC2026" class="cite xref">RFC2026</a>]</span> requires? Consider:<a href="#section-4.1.1-7" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-4.1.1-8.1">
+              <p id="section-4.1.1-8.1.1">Clarity and completeness of specification<a href="#section-4.1.1-8.1.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-4.1.1-8.2">
+              <p id="section-4.1.1-8.2.1">Appropriate complexity for the problem<a href="#section-4.1.1-8.2.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-4.1.1-8.3">
+              <p id="section-4.1.1-8.3.1">Security integrated from the beginning (<span>[<a href="#RFC3552" class="cite xref">RFC3552</a>]</span>)<a href="#section-4.1.1-8.3.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-4.1.1-8.4">
+              <p id="section-4.1.1-8.4.1">Scalability for anticipated deployment<a href="#section-4.1.1-8.4.1" class="pilcrow">¶</a></p>
+</li>
+          </ul>
+</section>
+</div>
+<div id="deployment-feasibility">
+<section id="section-4.1.2">
+          <h4 id="name-deployment-feasibility">
+<a href="#section-4.1.2" class="section-number selfRef">4.1.2. </a><a href="#name-deployment-feasibility" class="section-name selfRef">Deployment Feasibility</a>
+          </h4>
+<p id="section-4.1.2-1"><span>[<a href="#RFC8170" class="cite xref">RFC8170</a>]</span> "Planning for Protocol Adoption and Subsequent Transitions" identifies key factors for successful deployment:<a href="#section-4.1.2-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-4.1.2-2.1">
+              <p id="section-4.1.2-2.1.1"><strong>Incremental Deployability</strong>: Can the standard be adopted gradually, or does it require everyone to switch simultaneously?<a href="#section-4.1.2-2.1.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-4.1.2-2.2">
+              <p id="section-4.1.2-2.2.1"><strong>Clear Benefits</strong>: Do early adopters gain value even before widespread deployment?<a href="#section-4.1.2-2.2.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-4.1.2-2.3">
+              <p id="section-4.1.2-2.3.1"><strong>Transition Mechanisms</strong>: How do systems migrate from current practice?<a href="#section-4.1.2-2.3.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-4.1.2-2.4">
+              <p id="section-4.1.2-2.4.1"><strong>Cost-Benefit Analysis</strong>: Are implementation costs justified by expected benefits?<a href="#section-4.1.2-2.4.1" class="pilcrow">¶</a></p>
+</li>
+          </ul>
+</section>
+</div>
+</section>
+</div>
+<div id="process-openness">
+<section id="section-4.2">
+        <h3 id="name-process-openness">
+<a href="#section-4.2" class="section-number selfRef">4.2. </a><a href="#name-process-openness" class="section-name selfRef">Process Openness</a>
+        </h3>
+<div id="the-openstand-principles">
+<section id="section-4.2.1">
+          <h4 id="name-the-openstand-principles">
+<a href="#section-4.2.1" class="section-number selfRef">4.2.1. </a><a href="#name-the-openstand-principles" class="section-name selfRef">The OpenStand Principles</a>
+          </h4>
+<p id="section-4.2.1-1"><span>[<a href="#RFC6852" class="cite xref">RFC6852</a>]</span> "Affirmation of the Modern Paradigm for Standards" established five fundamental principles that public funders should verify:<a href="#section-4.2.1-1" class="pilcrow">¶</a></p>
+<ol start="1" type="1" class="normal type-1" id="section-4.2.1-2">
+<li id="section-4.2.1-2.1">
+              <p id="section-4.2.1-2.1.1"><strong>Due Process</strong>: Decisions through defined processes with appeals<a href="#section-4.2.1-2.1.1" class="pilcrow">¶</a></p>
+</li>
+            <li id="section-4.2.1-2.2">
+              <p id="section-4.2.1-2.2.1"><strong>Broad Consensus</strong>: Agreement across diverse stakeholders<a href="#section-4.2.1-2.2.1" class="pilcrow">¶</a></p>
+</li>
+            <li id="section-4.2.1-2.3">
+              <p id="section-4.2.1-2.3.1"><strong>Transparency</strong>: Public access to proceedings and documents<a href="#section-4.2.1-2.3.1" class="pilcrow">¶</a></p>
+</li>
+            <li id="section-4.2.1-2.4">
+              <p id="section-4.2.1-2.4.1"><strong>Balance</strong>: No domination by particular interests<a href="#section-4.2.1-2.4.1" class="pilcrow">¶</a></p>
+</li>
+            <li id="section-4.2.1-2.5">
+              <p id="section-4.2.1-2.5.1"><strong>Openness</strong>: Participation available to all interested parties<a href="#section-4.2.1-2.5.1" class="pilcrow">¶</a></p>
+</li>
+          </ol>
+</section>
+</div>
+<div id="consensus-building">
+<section id="section-4.2.2">
+          <h4 id="name-consensus-building">
+<a href="#section-4.2.2" class="section-number selfRef">4.2.2. </a><a href="#name-consensus-building" class="section-name selfRef">Consensus Building</a>
+          </h4>
+<p id="section-4.2.2-1"><span>[<a href="#RFC7282" class="cite xref">RFC7282</a>]</span> explains how genuine consensus works. Warning signs of problematic processes include:<a href="#section-4.2.2-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-4.2.2-2.1">
+              <p id="section-4.2.2-2.1.1">Decision by voting rather than addressing objections<a href="#section-4.2.2-2.1.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-4.2.2-2.2">
+              <p id="section-4.2.2-2.2.1">Single organization dominating discussions<a href="#section-4.2.2-2.2.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-4.2.2-2.3">
+              <p id="section-4.2.2-2.3.1">Technical concerns dismissed for business reasons<a href="#section-4.2.2-2.3.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-4.2.2-2.4">
+              <p id="section-4.2.2-2.4.1">Rushed timelines preventing thorough review<a href="#section-4.2.2-2.4.1" class="pilcrow">¶</a></p>
+</li>
+          </ul>
+</section>
+</div>
+</section>
+</div>
+<div id="intellectual-property-considerations">
+<section id="section-4.3">
+        <h3 id="name-intellectual-property-consi">
+<a href="#section-4.3" class="section-number selfRef">4.3. </a><a href="#name-intellectual-property-consi" class="section-name selfRef">Intellectual Property Considerations</a>
+        </h3>
+<p id="section-4.3-1"><span>[<a href="#RFC8179" class="cite xref">RFC8179</a>]</span> "Intellectual Property Rights in IETF Technology" establishes a clear preference hierarchy:<a href="#section-4.3-1" class="pilcrow">¶</a></p>
+<ol start="1" type="1" class="normal type-1" id="section-4.3-2">
+<li id="section-4.3-2.1">
+            <p id="section-4.3-2.1.1">No patent claims (ideal)<a href="#section-4.3-2.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li id="section-4.3-2.2">
+            <p id="section-4.3-2.2.1">Royalty-free licensing to everyone<a href="#section-4.3-2.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li id="section-4.3-2.3">
+            <p id="section-4.3-2.3.1">Reasonable and non-discriminatory (RAND) terms with reciprocity<a href="#section-4.3-2.3.1" class="pilcrow">¶</a></p>
+</li>
+          <li id="section-4.3-2.4">
+            <p id="section-4.3-2.4.1">RAND with fees (least desirable)<a href="#section-4.3-2.4.1" class="pilcrow">¶</a></p>
+</li>
+        </ol>
+<p id="section-4.3-3">Critically, <span>[<a href="#RFC8179" class="cite xref">RFC8179</a>]</span> requires that security mechanisms must be royalty-free, recognizing that patent barriers to security implementation harm everyone. Public funders should similarly prioritize royalty-free standards that maximize public benefit.<a href="#section-4.3-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="human-rights">
+<section id="section-5">
+      <h2 id="name-human-rights-and-social-imp">
+<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-human-rights-and-social-imp" class="section-name selfRef">Human Rights and Social Impact</a>
+      </h2>
+<p id="section-5-1">Standards that seem purely technical often have profound social implications. A protocol's design choices can enable surveillance or protect privacy, facilitate censorship or preserve free expression, include or exclude marginalized communities. Even commercially successful standards may optimize for business needs while ignoring public interest concerns.<a href="#section-5-1" class="pilcrow">¶</a></p>
+<p id="section-5-2">Public funding can ensure these impacts are assessed and addressed, even in standards with strong commercial backing.<a href="#section-5-2" class="pilcrow">¶</a></p>
+<div id="the-evolution-toward-human-rights-considerations">
+<section id="section-5.1">
+        <h3 id="name-the-evolution-toward-human-">
+<a href="#section-5.1" class="section-number selfRef">5.1. </a><a href="#name-the-evolution-toward-human-" class="section-name selfRef">The Evolution Toward Human Rights Considerations</a>
+        </h3>
+<p id="section-5.1-1">The IETF's approach to standards has evolved from purely technical considerations to recognizing broader impacts. <span>[<a href="#RFC8280" class="cite xref">RFC8280</a>]</span> "Research into Human Rights Protocol Considerations" pioneered systematic analysis of how technical choices affect human rights. <span>[<a href="#RFC9620" class="cite xref">RFC9620</a>]</span> "Guidelines for Human Rights Protocol Considerations" (2024) provides practical assessment tools.<a href="#section-5.1-1" class="pilcrow">¶</a></p>
+<p id="section-5.1-2">However, current frameworks show a bias toward civil and political rights such as privacy, freedom of expression, freedom from surveillance. While these are crucial, the full spectrum of human rights includes economic, social, and cultural rights that remain underexamined in standards work:<a href="#section-5.1-2" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-5.1-3.1">
+            <p id="section-5.1-3.1.1"><strong>Economic rights</strong>: How do standards affect access to work, fair wages, and economic participation? Do they enable or prevent economic exploitation?<a href="#section-5.1-3.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-5.1-3.2">
+            <p id="section-5.1-3.2.1"><strong>Social rights</strong>: Do standards support rights to education, health, and social security? How do they affect community participation?<a href="#section-5.1-3.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-5.1-3.3">
+            <p id="section-5.1-3.3.1"><strong>Cultural rights</strong>: Do standards respect cultural diversity, linguistic rights, and traditional knowledge? Do they impose particular cultural assumptions?<a href="#section-5.1-3.3.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+<p id="section-5.1-4">As a global network serving diverse populations, the Internet's standards must consider all human rights. Public funders can support development of more comprehensive assessment frameworks that address this gap.<a href="#section-5.1-4" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="privacy-as-a-fundamental-consideration">
+<section id="section-5.2">
+        <h3 id="name-privacy-as-a-fundamental-co">
+<a href="#section-5.2" class="section-number selfRef">5.2. </a><a href="#name-privacy-as-a-fundamental-co" class="section-name selfRef">Privacy as a Fundamental Consideration</a>
+        </h3>
+<p id="section-5.2-1"><span>[<a href="#RFC6973" class="cite xref">RFC6973</a>]</span> "Privacy Considerations for Internet Protocols" established that privacy analysis must be integral to standards development, not an afterthought. Key considerations include:<a href="#section-5.2-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-5.2-2.1">
+            <p id="section-5.2-2.1.1"><strong>Data Minimization</strong>: Protocols should reveal minimum necessary information<a href="#section-5.2-2.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-5.2-2.2">
+            <p id="section-5.2-2.2.1"><strong>User Control</strong>: Users should understand and control information disclosure<a href="#section-5.2-2.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-5.2-2.3">
+            <p id="section-5.2-2.3.1"><strong>Anonymity and Pseudonymity</strong>: Support for users who need to protect their identity<a href="#section-5.2-2.3.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-5.2-2.4">
+            <p id="section-5.2-2.4.1"><strong>Confidentiality</strong>: Protection of communication content and metadata<a href="#section-5.2-2.4.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+<p id="section-5.2-3"><span>[<a href="#RFC7258" class="cite xref">RFC7258</a>]</span> went further, declaring "Pervasive Monitoring Is an Attack" that protocols should mitigate. This transformed privacy from a feature to a security requirement.<a href="#section-5.2-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="accessibility-and-inclusion">
+<section id="section-5.3">
+        <h3 id="name-accessibility-and-inclusion">
+<a href="#section-5.3" class="section-number selfRef">5.3. </a><a href="#name-accessibility-and-inclusion" class="section-name selfRef">Accessibility and Inclusion</a>
+        </h3>
+<p id="section-5.3-1"><span>[<a href="#RFC7704" class="cite xref">RFC7704</a>]</span> "An IETF with Much Diversity and Professional Conduct" documents that diverse participation improves standards quality. Standards should be evaluated for:<a href="#section-5.3-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-5.3-2.1">
+            <p id="section-5.3-2.1.1"><strong>Accessibility</strong>: Can people with disabilities use the technology?<a href="#section-5.3-2.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-5.3-2.2">
+            <p id="section-5.3-2.2.1"><strong>Internationalization</strong>: Does it work for all languages and cultures?<a href="#section-5.3-2.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-5.3-2.3">
+            <p id="section-5.3-2.3.1"><strong>Digital Divide</strong>: Does it function in low-bandwidth or high-latency environments?<a href="#section-5.3-2.3.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-5.3-2.4">
+            <p id="section-5.3-2.4.1"><strong>Economic Barriers</strong>: Can it be implemented without expensive licenses or hardware?<a href="#section-5.3-2.4.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+<p id="section-5.3-3">Beyond these technical considerations, standards affect broader social and economic inclusion:<a href="#section-5.3-3" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-5.3-4.1">
+            <p id="section-5.3-4.1.1"><strong>Economic Participation</strong>: Do standards enable or restrict economic opportunities? For example, payment protocols that require bank accounts exclude the unbanked.<a href="#section-5.3-4.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-5.3-4.2">
+            <p id="section-5.3-4.2.1"><strong>Educational Access</strong>: Can standards support diverse learning environments and pedagogical approaches? Do they require expensive infrastructure that limits educational access?<a href="#section-5.3-4.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-5.3-4.3">
+            <p id="section-5.3-4.3.1"><strong>Cultural Preservation</strong>: Do standards allow communities to maintain their languages, scripts, and cultural practices online?<a href="#section-5.3-4.3.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-5.3-4.4">
+            <p id="section-5.3-4.4.1"><strong>Social Services</strong>: How do standards affect delivery of healthcare, social support, and public services?<a href="#section-5.3-4.4.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+<p id="section-5.3-5">Public funders should support research into these broader impacts and development of assessment tools that capture the full range of human rights considerations.<a href="#section-5.3-5" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="practical-assessment-questions">
+<section id="section-5.4">
+        <h3 id="name-practical-assessment-questi">
+<a href="#section-5.4" class="section-number selfRef">5.4. </a><a href="#name-practical-assessment-questi" class="section-name selfRef">Practical Assessment Questions</a>
+        </h3>
+<p id="section-5.4-1">When evaluating human rights impacts, consider:<a href="#section-5.4-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-5.4-2.1">
+            <p id="section-5.4-2.1.1">Could this standard enable censorship or surveillance?<a href="#section-5.4-2.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-5.4-2.2">
+            <p id="section-5.4-2.2.1">Does it protect privacy and freedom of expression?<a href="#section-5.4-2.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-5.4-2.3">
+            <p id="section-5.4-2.3.1">Does it support freedom of association and assembly online?<a href="#section-5.4-2.3.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-5.4-2.4">
+            <p id="section-5.4-2.4.1">Does this standard affect people's ability to work or access economic opportunities?<a href="#section-5.4-2.4.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-5.4-2.5">
+            <p id="section-5.4-2.5.1">How does it impact access to education, healthcare, or social services?<a href="#section-5.4-2.5.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-5.4-2.6">
+            <p id="section-5.4-2.6.1">Does it respect linguistic diversity and cultural practices?<a href="#section-5.4-2.6.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-5.4-2.7">
+            <p id="section-5.4-2.7.1">Will it widen or narrow global digital divides?<a href="#section-5.4-2.7.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-5.4-2.8">
+            <p id="section-5.4-2.8.1">Does it enable local innovation or require dependence on foreign technology?<a href="#section-5.4-2.8.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+<p id="section-5.4-3">These broader assessments are often completely absent from standards work. Industry participants may not see them as relevant. Public funding can support more Human Rights and Privacy assesments to be done.<a href="#section-5.4-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="followingwork">
+<section id="section-6">
+      <h2 id="name-following-standards-work">
+<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-following-standards-work" class="section-name selfRef">Following Standards Work</a>
+      </h2>
+<div id="understanding-ietf-documentation">
+<section id="section-6.1">
+        <h3 id="name-understanding-ietf-document">
+<a href="#section-6.1" class="section-number selfRef">6.1. </a><a href="#name-understanding-ietf-document" class="section-name selfRef">Understanding IETF Documentation</a>
+        </h3>
+<p id="section-6.1-1">The IETF's work is documented in RFCs, but not all RFCs are standards. <span>[<a href="#RFC2026" class="cite xref">RFC2026</a>]</span> defines several categories:<a href="#section-6.1-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-6.1-2.1">
+            <p id="section-6.1-2.1.1"><strong>Standards Track</strong>: Specifications intended for Internet standards<a href="#section-6.1-2.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-6.1-2.2">
+            <p id="section-6.1-2.2.1"><strong>Informational</strong>: General information for the community<a href="#section-6.1-2.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-6.1-2.3">
+            <p id="section-6.1-2.3.1"><strong>Experimental</strong>: Research or early-stage work<a href="#section-6.1-2.3.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-6.1-2.4">
+            <p id="section-6.1-2.4.1"><strong>Best Current Practice (BCP)</strong>: Operational guidance<a href="#section-6.1-2.4.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+<p id="section-6.1-3">Within Standards Track, documents progress through maturity levels:<a href="#section-6.1-3" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-6.1-4.1">
+            <p id="section-6.1-4.1.1"><strong>Proposed Standard</strong>: Stable specification ready for deployment<a href="#section-6.1-4.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-6.1-4.2">
+            <p id="section-6.1-4.2.1"><strong>Internet Standard</strong>: Demonstrated widespread deployment and interoperability<a href="#section-6.1-4.2.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+</section>
+</div>
+<div id="information-sources">
+<section id="section-6.2">
+        <h3 id="name-information-sources">
+<a href="#section-6.2" class="section-number selfRef">6.2. </a><a href="#name-information-sources" class="section-name selfRef">Information Sources</a>
+        </h3>
+<div id="official-ietf-resources">
+<section id="section-6.2.1">
+          <h4 id="name-official-ietf-resources">
+<a href="#section-6.2.1" class="section-number selfRef">6.2.1. </a><a href="#name-official-ietf-resources" class="section-name selfRef">Official IETF Resources</a>
+          </h4>
+<ul class="normal">
+<li class="normal" id="section-6.2.1-1.1">
+              <p id="section-6.2.1-1.1.1"><strong>IETF Datatracker</strong> (datatracker.ietf.org): Real-time status of all IETF documents<a href="#section-6.2.1-1.1.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-6.2.1-1.2">
+              <p id="section-6.2.1-1.2.1"><strong>RFC Editor</strong> (rfc-editor.org): Published RFCs and errata<a href="#section-6.2.1-1.2.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-6.2.1-1.3">
+              <p id="section-6.2.1-1.3.1"><strong>Mail Archives</strong> (mailarchive.ietf.org): Complete discussion history<a href="#section-6.2.1-1.3.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-6.2.1-1.4">
+              <p id="section-6.2.1-1.4.1"><strong>Meeting Materials</strong>: Agendas, presentations, recordings from triannual meetings<a href="#section-6.2.1-1.4.1" class="pilcrow">¶</a></p>
+</li>
+          </ul>
+</section>
+</div>
+<div id="key-documents-to-review">
+<section id="section-6.2.2">
+          <h4 id="name-key-documents-to-review">
+<a href="#section-6.2.2" class="section-number selfRef">6.2.2. </a><a href="#name-key-documents-to-review" class="section-name selfRef">Key Documents to Review</a>
+          </h4>
+<p id="section-6.2.2-1">For any standards project, examine:<a href="#section-6.2.2-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-6.2.2-2.1">
+              <p id="section-6.2.2-2.1.1"><strong>Charter</strong>: Working group scope and deliverables<a href="#section-6.2.2-2.1.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-6.2.2-2.2">
+              <p id="section-6.2.2-2.2.1"><strong>Internet-Drafts</strong>: Works in progress showing current thinking<a href="#section-6.2.2-2.2.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-6.2.2-2.3">
+              <p id="section-6.2.2-2.3.1"><strong>Implementation Status</strong>: Following <span>[<a href="#RFC7942" class="cite xref">RFC7942</a>]</span> format<a href="#section-6.2.2-2.3.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-6.2.2-2.4">
+              <p id="section-6.2.2-2.4.1"><strong>Mailing List Activity</strong>: Quality and breadth of technical discussion<a href="#section-6.2.2-2.4.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-6.2.2-2.5">
+              <p id="section-6.2.2-2.5.1"><strong>Meeting Minutes</strong>: Decisions and consensus points<a href="#section-6.2.2-2.5.1" class="pilcrow">¶</a></p>
+</li>
+          </ul>
+</section>
+</div>
+</section>
+</div>
+<div id="engagement-strategies">
+<section id="section-6.3">
+        <h3 id="name-engagement-strategies">
+<a href="#section-6.3" class="section-number selfRef">6.3. </a><a href="#name-engagement-strategies" class="section-name selfRef">Engagement Strategies</a>
+        </h3>
+<p id="section-6.3-1">Funders can engage with standards development through:<a href="#section-6.3-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-6.3-2.1">
+            <p id="section-6.3-2.1.1"><strong>Monitoring</strong>: Following relevant working groups and documents<a href="#section-6.3-2.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-6.3-2.2">
+            <p id="section-6.3-2.2.1"><strong>Participation Support</strong>: Funding public interest advocates to engage deeply in standards work, including travel to key meetings<a href="#section-6.3-2.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-6.3-2.3">
+            <p id="section-6.3-2.3.1"><strong>Supporting Implementations</strong>: Funding reference implementations that demonstrate public interest features<a href="#section-6.3-2.3.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-6.3-2.4">
+            <p id="section-6.3-2.4.1"><strong>Research</strong>: Supporting studies on deployment and impact<a href="#section-6.3-2.4.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-6.3-2.5">
+            <p id="section-6.3-2.5.1"><strong>Capacity Building</strong>: Training new participants from underrepresented communities<a href="#section-6.3-2.5.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-6.3-2.6">
+            <p id="section-6.3-2.6.1"><strong>Coalition Building</strong>: Bringing together public interest groups to coordinate standards engagement<a href="#section-6.3-2.6.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+<p id="section-6.3-3">Remember that meaningful participation requires sustained engagement. A single comment or meeting attendance rarely influences outcomes. Public interest advocates need support for the long-term commitment that effective standards work requires.<a href="#section-6.3-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="pitfalls">
+<section id="section-7">
+      <h2 id="name-common-pitfalls-and-how-to-">
+<a href="#section-7" class="section-number selfRef">7. </a><a href="#name-common-pitfalls-and-how-to-" class="section-name selfRef">Common Pitfalls and How to Avoid Them</a>
+      </h2>
+<div id="the-build-it-and-they-will-come-fallacy">
+<section id="section-7.1">
+        <h3 id="name-the-build-it-and-they-will-">
+<a href="#section-7.1" class="section-number selfRef">7.1. </a><a href="#name-the-build-it-and-they-will-" class="section-name selfRef">The "Build It and They Will Come" Fallacy</a>
+        </h3>
+<p id="section-7.1-1"><strong>Pitfall</strong>: Assuming that creating a standard guarantees adoption.<a href="#section-7.1-1" class="pilcrow">¶</a></p>
+<p id="section-7.1-2"><strong>Reality</strong>: Standards succeed through voluntary adoption based on clear value propositions. <span>[<a href="#RFC8170" class="cite xref">RFC8170</a>]</span> documents many technically excellent standards that failed due to lack of adoption incentives.<a href="#section-7.1-2" class="pilcrow">¶</a></p>
+<p id="section-7.1-3"><strong>Avoidance</strong>: Require clear analysis of adoption incentives, transition costs, and deployment strategies. Fund implementation and deployment support, not just specification development.<a href="#section-7.1-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="vendor-capture">
+<section id="section-7.2">
+        <h3 id="name-vendor-capture">
+<a href="#section-7.2" class="section-number selfRef">7.2. </a><a href="#name-vendor-capture" class="section-name selfRef">Vendor Capture</a>
+        </h3>
+<p id="section-7.2-1"><strong>Pitfall</strong>: Standards that appear open but actually lock in a single vendor's approach.<a href="#section-7.2-1" class="pilcrow">¶</a></p>
+<p id="section-7.2-2"><strong>Reality</strong>: Some organizations use standards to legitimize proprietary technology. True standards enable competitive implementations.<a href="#section-7.2-2" class="pilcrow">¶</a></p>
+<p id="section-7.2-3"><strong>Avoidance</strong>: Verify multiple independent implementations are possible. Check who participates in development and whether processes follow <span>[<a href="#RFC6852" class="cite xref">RFC6852</a>]</span>'s OpenStand principles.<a href="#section-7.2-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="complexity-creep">
+<section id="section-7.3">
+        <h3 id="name-complexity-creep">
+<a href="#section-7.3" class="section-number selfRef">7.3. </a><a href="#name-complexity-creep" class="section-name selfRef">Complexity Creep</a>
+        </h3>
+<p id="section-7.3-1"><strong>Pitfall</strong>: Standards that try to solve every possible problem become too complex to implement correctly.<a href="#section-7.3-1" class="pilcrow">¶</a></p>
+<p id="section-7.3-2"><strong>Reality</strong>: As <span>[<a href="#RFC1958" class="cite xref">RFC1958</a>]</span> notes, "Keep it simple. When in doubt, use the simplest solution." Complex standards often fail or result in incompatible partial implementations.<a href="#section-7.3-2" class="pilcrow">¶</a></p>
+<p id="section-7.3-3"><strong>Avoidance</strong>: Favor incremental approaches that solve immediate problems while enabling future extension. Require evidence that complexity is necessary, not just potentially useful.<a href="#section-7.3-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="ignoring-existing-practice">
+<section id="section-7.4">
+        <h3 id="name-ignoring-existing-practice">
+<a href="#section-7.4" class="section-number selfRef">7.4. </a><a href="#name-ignoring-existing-practice" class="section-name selfRef">Ignoring Existing Practice</a>
+        </h3>
+<p id="section-7.4-1"><strong>Pitfall</strong>: Creating "clean slate" standards that require abandoning working systems.<a href="#section-7.4-1" class="pilcrow">¶</a></p>
+<p id="section-7.4-2"><strong>Reality</strong>: The Internet's success comes from evolutionary improvement, not revolutionary replacement. Standards must work with existing infrastructure.<a href="#section-7.4-2" class="pilcrow">¶</a></p>
+<p id="section-7.4-3"><strong>Avoidance</strong>: Require clear migration paths from current practice. Fund standards that enhance rather than replace existing systems.<a href="#section-7.4-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="premature-standardization">
+<section id="section-7.5">
+        <h3 id="name-premature-standardization">
+<a href="#section-7.5" class="section-number selfRef">7.5. </a><a href="#name-premature-standardization" class="section-name selfRef">Premature Standardization</a>
+        </h3>
+<p id="section-7.5-1"><strong>Pitfall</strong>: Standardizing before understanding the problem space.<a href="#section-7.5-1" class="pilcrow">¶</a></p>
+<p id="section-7.5-2"><strong>Reality</strong>: <span>[<a href="#RFC2026" class="cite xref">RFC2026</a>]</span> requires "sufficient successful operational experience" because standards created without deployment experience often standardize the wrong things.<a href="#section-7.5-2" class="pilcrow">¶</a></p>
+<p id="section-7.5-3"><strong>Avoidance</strong>: Fund experimentation and prototype development before formal standardization. Look for evidence of real deployment experience, not just laboratory testing.<a href="#section-7.5-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="recommendations">
+<section id="section-8">
+      <h2 id="name-recommendations-for-public-">
+<a href="#section-8" class="section-number selfRef">8. </a><a href="#name-recommendations-for-public-" class="section-name selfRef">Recommendations for Public Funders</a>
+      </h2>
+<div id="essential-requirements">
+<section id="section-8.1">
+        <h3 id="name-essential-requirements">
+<a href="#section-8.1" class="section-number selfRef">8.1. </a><a href="#name-essential-requirements" class="section-name selfRef">Essential Requirements</a>
+        </h3>
+<p id="section-8.1-1">Based on IETF experience, public funders should require:<a href="#section-8.1-1" class="pilcrow">¶</a></p>
+<ol start="1" type="1" class="normal type-1" id="section-8.1-2">
+<li id="section-8.1-2.1">
+            <p id="section-8.1-2.1.1"><strong>Working Implementations</strong>: Following <span>[<a href="#RFC7942" class="cite xref">RFC7942</a>]</span>, require documented implementation status before significant funding.<a href="#section-8.1-2.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li id="section-8.1-2.2">
+            <p id="section-8.1-2.2.1"><strong>Open Process</strong>: Verify adherence to <span>[<a href="#RFC6852" class="cite xref">RFC6852</a>]</span>'s OpenStand principles<a href="#section-8.1-2.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li id="section-8.1-2.3">
+            <p id="section-8.1-2.3.1"><strong>Multiple Implementers</strong>: Ensure genuine interoperability per <span>[<a href="#RFC5657" class="cite xref">RFC5657</a>]</span> guidelines. Often it is good to have a diversity of implementations, such as a reference implementation that is faithful to the specification, and an opinionated one that maintainas interoperability while focusing on a specific use case for the standard.<a href="#section-8.1-2.3.1" class="pilcrow">¶</a></p>
+</li>
+          <li id="section-8.1-2.4">
+            <p id="section-8.1-2.4.1"><strong>Human Rights Assessment</strong>: Apply <span>[<a href="#RFC9620" class="cite xref">RFC9620</a>]</span>'s evaluation framework<a href="#section-8.1-2.4.1" class="pilcrow">¶</a></p>
+</li>
+          <li id="section-8.1-2.5">
+            <p id="section-8.1-2.5.1"><strong>Royalty-Free Licensing</strong>: Especially for security features, per <span>[<a href="#RFC8179" class="cite xref">RFC8179</a>]</span><a href="#section-8.1-2.5.1" class="pilcrow">¶</a></p>
+</li>
+        </ol>
+</section>
+</div>
+<div id="evaluation-process">
+<section id="section-8.2">
+        <h3 id="name-evaluation-process">
+<a href="#section-8.2" class="section-number selfRef">8.2. </a><a href="#name-evaluation-process" class="section-name selfRef">Evaluation Process</a>
+        </h3>
+<p id="section-8.2-1">A systematic evaluation should include:<a href="#section-8.2-1" class="pilcrow">¶</a></p>
+<ol start="1" type="1" class="normal type-1" id="section-8.2-2">
+<li id="section-8.2-2.1">
+            <p id="section-8.2-2.1.1"><strong>Problem Validation</strong>: Is there a real problem that standardization can solve?<a href="#section-8.2-2.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li id="section-8.2-2.2">
+            <p id="section-8.2-2.2.1"><strong>Technical Assessment</strong>: Does the approach demonstrate technical excellence per <span>[<a href="#RFC2026" class="cite xref">RFC2026</a>]</span>?<a href="#section-8.2-2.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li id="section-8.2-2.3">
+            <p id="section-8.2-2.3.1"><strong>Implementation Verification</strong>: Is there running code and interoperability testing?<a href="#section-8.2-2.3.1" class="pilcrow">¶</a></p>
+</li>
+          <li id="section-8.2-2.4">
+            <p id="section-8.2-2.4.1"><strong>Process Review</strong>: Are development processes open and inclusive?<a href="#section-8.2-2.4.1" class="pilcrow">¶</a></p>
+</li>
+          <li id="section-8.2-2.5">
+            <p id="section-8.2-2.5.1"><strong>Impact Analysis</strong>: What are the human rights and social implications?<a href="#section-8.2-2.5.1" class="pilcrow">¶</a></p>
+</li>
+          <li id="section-8.2-2.6">
+            <p id="section-8.2-2.6.1"><strong>Deployment Planning</strong>: Is there a realistic path to adoption per <span>[<a href="#RFC8170" class="cite xref">RFC8170</a>]</span>?<a href="#section-8.2-2.6.1" class="pilcrow">¶</a></p>
+</li>
+        </ol>
+</section>
+</div>
+<div id="investment-strategies">
+<section id="section-8.3">
+        <h3 id="name-investment-strategies">
+<a href="#section-8.3" class="section-number selfRef">8.3. </a><a href="#name-investment-strategies" class="section-name selfRef">Investment Strategies</a>
+        </h3>
+<div id="supporting-public-interest-participation">
+<section id="section-8.3.1">
+          <h4 id="name-supporting-public-interest-">
+<a href="#section-8.3.1" class="section-number selfRef">8.3.1. </a><a href="#name-supporting-public-interest-" class="section-name selfRef">Supporting Public Interest Participation</a>
+          </h4>
+<p id="section-8.3.1-1">Even in commercially viable standards, public funding should ensure public interest representation:<a href="#section-8.3.1-1" class="pilcrow">¶</a></p>
+<p id="section-8.3.1-2"><strong>Travel and Participation Support</strong>:<a href="#section-8.3.1-2" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-8.3.1-3.1">
+              <p id="section-8.3.1-3.1.1">Fund attendance at critical IETF meetings and interim sessions<a href="#section-8.3.1-3.1.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-8.3.1-3.2">
+              <p id="section-8.3.1-3.2.1">Support long-term engagement, not just one-time participation<a href="#section-8.3.1-3.2.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-8.3.1-3.3">
+              <p id="section-8.3.1-3.3.1">Enable participation in multiple working groups when issues intersect<a href="#section-8.3.1-3.3.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-8.3.1-3.4">
+              <p id="section-8.3.1-3.4.1">Cover costs for preparatory work and follow-up activities<a href="#section-8.3.1-3.4.1" class="pilcrow">¶</a></p>
+</li>
+          </ul>
+<p id="section-8.3.1-4"><strong>Impact Assessments</strong>:<a href="#section-8.3.1-4" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-8.3.1-5.1">
+              <p id="section-8.3.1-5.1.1">Fund independent privacy impact assessments per <span>[<a href="#RFC6973" class="cite xref">RFC6973</a>]</span><a href="#section-8.3.1-5.1.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-8.3.1-5.2">
+              <p id="section-8.3.1-5.2.1">Support human rights reviews following <span>[<a href="#RFC9620" class="cite xref">RFC9620</a>]</span><a href="#section-8.3.1-5.2.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-8.3.1-5.3">
+              <p id="section-8.3.1-5.3.1">Enable accessibility evaluations<a href="#section-8.3.1-5.3.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-8.3.1-5.4">
+              <p id="section-8.3.1-5.4.1">Document impacts on marginalized communities<a href="#section-8.3.1-5.4.1" class="pilcrow">¶</a></p>
+</li>
+          </ul>
+<p id="section-8.3.1-6"><strong>Capacity Building</strong>:<a href="#section-8.3.1-6" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-8.3.1-7.1">
+              <p id="section-8.3.1-7.1.1">Train public interest technologists in standards processes<a href="#section-8.3.1-7.1.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-8.3.1-7.2">
+              <p id="section-8.3.1-7.2.1">Support fellowships for underrepresented participants<a href="#section-8.3.1-7.2.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-8.3.1-7.3">
+              <p id="section-8.3.1-7.3.1">Create mentorship programs pairing newcomers with experienced participants<a href="#section-8.3.1-7.3.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-8.3.1-7.4">
+              <p id="section-8.3.1-7.4.1">Fund time for advocates to engage deeply with technical details<a href="#section-8.3.1-7.4.1" class="pilcrow">¶</a></p>
+</li>
+          </ul>
+</section>
+</div>
+<div id="direct-standards-development">
+<section id="section-8.3.2">
+          <h4 id="name-direct-standards-developmen">
+<a href="#section-8.3.2" class="section-number selfRef">8.3.2. </a><a href="#name-direct-standards-developmen" class="section-name selfRef">Direct Standards Development</a>
+          </h4>
+<p id="section-8.3.2-1">When funding standards development directly:<a href="#section-8.3.2-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-8.3.2-2.1">
+              <p id="section-8.3.2-2.1.1">Support multiple independent implementations, not just specifications<a href="#section-8.3.2-2.1.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-8.3.2-2.2">
+              <p id="section-8.3.2-2.2.1">Require public documentation of decisions and rationales<a href="#section-8.3.2-2.2.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-8.3.2-2.3">
+              <p id="section-8.3.2-2.3.1">Fund long-term maintenance, not just initial development<a href="#section-8.3.2-2.3.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-8.3.2-2.4">
+              <p id="section-8.3.2-2.4.1">Include support for interoperability testing events<a href="#section-8.3.2-2.4.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-8.3.2-2.5">
+              <p id="section-8.3.2-2.5.1">Ensure public interest voices are resourced throughout the process<a href="#section-8.3.2-2.5.1" class="pilcrow">¶</a></p>
+</li>
+          </ul>
+</section>
+</div>
+<div id="ecosystem-support">
+<section id="section-8.3.3">
+          <h4 id="name-ecosystem-support">
+<a href="#section-8.3.3" class="section-number selfRef">8.3.3. </a><a href="#name-ecosystem-support" class="section-name selfRef">Ecosystem Support</a>
+          </h4>
+<p id="section-8.3.3-1">Beyond direct development, consider funding:<a href="#section-8.3.3-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-8.3.3-2.1">
+              <p id="section-8.3.3-2.1.1"><strong>Conformance Tools</strong>: Test suites verifying correct implementation<a href="#section-8.3.3-2.1.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-8.3.3-2.2">
+              <p id="section-8.3.3-2.2.1"><strong>Community Building</strong>: Supporting participation from underrepresented groups<a href="#section-8.3.3-2.2.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-8.3.3-2.3">
+              <p id="section-8.3.3-2.3.1"><strong>Research and Assessment</strong>: Studies on deployment barriers, comprehensive human rights impacts, and lessons learned<a href="#section-8.3.3-2.3.1" class="pilcrow">¶</a></p>
+</li>
+          </ul>
+</section>
+</div>
+</section>
+</div>
+<div id="success-metrics">
+<section id="section-8.4">
+        <h3 id="name-success-metrics">
+<a href="#section-8.4" class="section-number selfRef">8.4. </a><a href="#name-success-metrics" class="section-name selfRef">Success Metrics</a>
+        </h3>
+<p id="section-8.4-1">TODO<a href="#section-8.4-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="conclusion">
+<section id="section-9">
+      <h2 id="name-conclusion">
+<a href="#section-9" class="section-number selfRef">9. </a><a href="#name-conclusion" class="section-name selfRef">Conclusion</a>
+      </h2>
+<p id="section-9-1">Technical standards shape our digital infrastructure in ways that affect billions of people. While industry drives much standards development, commercial incentives alone don't ensure public interest considerations. Even highly commercial standards need public interest voices to address privacy, human rights, accessibility, and impacts on marginalized communities.<a href="#section-9-1" class="pilcrow">¶</a></p>
+<p id="section-9-2">Public funders have two essential roles: supporting standards that markets won't produce, and ensuring public interest representation in all standards work. This includes funding participation by civil society advocates, supporting impact assessments that industry might skip, and ensuring diverse voices can engage despite economic barriers.<a href="#section-9-2" class="pilcrow">¶</a></p>
+<p id="section-9-3">The IETF's decades of experience, documented in thousands of RFCs, provide proven principles for public funders to evaluate effective and open standards work. While the IETF process is nominally open, meaningful participation requires resources, such as travel to meetings, time for deep technical engagement, expertise development. Public funding can level this playing field.<a href="#section-9-3" class="pilcrow">¶</a></p>
+<p id="section-9-4">Key insights from IETF experience:<a href="#section-9-4" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-9-5.1">
+          <p id="section-9-5.1.1">Successful standards emerge from practical experience, not theoretical design<a href="#section-9-5.1.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-9-5.2">
+          <p id="section-9-5.2.1">Running code and multiple implementations are essential<a href="#section-9-5.2.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-9-5.3">
+          <p id="section-9-5.3.1">Open processes need active support to achieve diverse participation<a href="#section-9-5.3.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-9-5.4">
+          <p id="section-9-5.4.1">Human rights and social impacts require dedicated assessment<a href="#section-9-5.4.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-9-5.5">
+          <p id="section-9-5.5.1">Standards embedding public values need public investment<a href="#section-9-5.5.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+<p id="section-9-6">Most importantly, remember that standards are means, not ends. The goal isn't to create standards but to solve problems that improve people's lives. Public investment ensures these solutions serve everyone, not just those with the loudest voices or deepest pockets.<a href="#section-9-6" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="security-considerations">
+<section id="section-10">
+      <h2 id="name-security-considerations">
+<a href="#section-10" class="section-number selfRef">10. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
+      </h2>
+<p id="section-10-1">This document describes evaluation frameworks that inherently improve security by:<a href="#section-10-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-10-2.1">
+          <p id="section-10-2.1.1">Requiring security consideration from initial design<a href="#section-10-2.1.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-10-2.2">
+          <p id="section-10-2.2.1">Mandating royalty-free security mechanisms<a href="#section-10-2.2.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-10-2.3">
+          <p id="section-10-2.3.1">Evaluating privacy and surveillance resistance<a href="#section-10-2.3.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-10-2.4">
+          <p id="section-10-2.4.1">Supporting transparent processes that enable security review<a href="#section-10-2.4.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+<p id="section-10-3">Funders should recognize that security cannot be added after standardization - it must be designed in from the beginning.<a href="#section-10-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="iana-considerations">
+<section id="section-11">
+      <h2 id="name-iana-considerations">
+<a href="#section-11" class="section-number selfRef">11. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
+      </h2>
+<p id="section-11-1">This document has no IANA actions.<a href="#section-11-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="sec-combined-references">
+<section id="section-12">
+      <h2 id="name-references">
+<a href="#section-12" class="section-number selfRef">12. </a><a href="#name-references" class="section-name selfRef">References</a>
+      </h2>
+<div id="sec-normative-references">
+<section id="section-12.1">
+        <h3 id="name-normative-references">
+<a href="#section-12.1" class="section-number selfRef">12.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
+        </h3>
+<dl class="references">
+<dt id="RFC2026">[RFC2026]</dt>
+        <dd>
+<span class="refAuthor">Bradner, S.</span>, <span class="refTitle">"The Internet Standards Process -- Revision 3"</span>, <span class="seriesInfo">BCP 9</span>, <span class="seriesInfo">RFC 2026</span>, <span class="seriesInfo">DOI 10.17487/RFC2026</span>, <time datetime="1996-10" class="refDate">October 1996</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc2026">https://www.rfc-editor.org/rfc/rfc2026</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC3935">[RFC3935]</dt>
+        <dd>
+<span class="refAuthor">Alvestrand, H.</span>, <span class="refTitle">"A Mission Statement for the IETF"</span>, <span class="seriesInfo">BCP 95</span>, <span class="seriesInfo">RFC 3935</span>, <span class="seriesInfo">DOI 10.17487/RFC3935</span>, <time datetime="2004-10" class="refDate">October 2004</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc3935">https://www.rfc-editor.org/rfc/rfc3935</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC6852">[RFC6852]</dt>
+        <dd>
+<span class="refAuthor">Housley, R.</span>, <span class="refAuthor">Mills, S.</span>, <span class="refAuthor">Jaffe, J.</span>, <span class="refAuthor">Aboba, B.</span>, and <span class="refAuthor">L. St.Amour</span>, <span class="refTitle">"Affirmation of the Modern Paradigm for Standards"</span>, <span class="seriesInfo">RFC 6852</span>, <span class="seriesInfo">DOI 10.17487/RFC6852</span>, <time datetime="2013-01" class="refDate">January 2013</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc6852">https://www.rfc-editor.org/rfc/rfc6852</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC7282">[RFC7282]</dt>
+        <dd>
+<span class="refAuthor">Resnick, P.</span>, <span class="refTitle">"On Consensus and Humming in the IETF"</span>, <span class="seriesInfo">RFC 7282</span>, <span class="seriesInfo">DOI 10.17487/RFC7282</span>, <time datetime="2014-06" class="refDate">June 2014</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc7282">https://www.rfc-editor.org/rfc/rfc7282</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC7942">[RFC7942]</dt>
+        <dd>
+<span class="refAuthor">Sheffer, Y.</span> and <span class="refAuthor">A. Farrel</span>, <span class="refTitle">"Improving Awareness of Running Code: The Implementation Status Section"</span>, <span class="seriesInfo">BCP 205</span>, <span class="seriesInfo">RFC 7942</span>, <span class="seriesInfo">DOI 10.17487/RFC7942</span>, <time datetime="2016-07" class="refDate">July 2016</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc7942">https://www.rfc-editor.org/rfc/rfc7942</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC8179">[RFC8179]</dt>
+        <dd>
+<span class="refAuthor">Bradner, S.</span> and <span class="refAuthor">J. Contreras</span>, <span class="refTitle">"Intellectual Property Rights in IETF Technology"</span>, <span class="seriesInfo">BCP 79</span>, <span class="seriesInfo">RFC 8179</span>, <span class="seriesInfo">DOI 10.17487/RFC8179</span>, <time datetime="2017-05" class="refDate">May 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8179">https://www.rfc-editor.org/rfc/rfc8179</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC8890">[RFC8890]</dt>
+      <dd>
+<span class="refAuthor">Nottingham, M.</span>, <span class="refTitle">"The Internet is for End Users"</span>, <span class="seriesInfo">RFC 8890</span>, <span class="seriesInfo">DOI 10.17487/RFC8890</span>, <time datetime="2020-08" class="refDate">August 2020</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8890">https://www.rfc-editor.org/rfc/rfc8890</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+</dl>
+</section>
+</div>
+<div id="sec-informative-references">
+<section id="section-12.2">
+        <h3 id="name-informative-references">
+<a href="#section-12.2" class="section-number selfRef">12.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
+        </h3>
+<dl class="references">
+<dt id="RFC1958">[RFC1958]</dt>
+        <dd>
+<span class="refAuthor">Carpenter, B., Ed.</span>, <span class="refTitle">"Architectural Principles of the Internet"</span>, <span class="seriesInfo">RFC 1958</span>, <span class="seriesInfo">DOI 10.17487/RFC1958</span>, <time datetime="1996-06" class="refDate">June 1996</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc1958">https://www.rfc-editor.org/rfc/rfc1958</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC3552">[RFC3552]</dt>
+        <dd>
+<span class="refAuthor">Rescorla, E.</span> and <span class="refAuthor">B. Korver</span>, <span class="refTitle">"Guidelines for Writing RFC Text on Security Considerations"</span>, <span class="seriesInfo">BCP 72</span>, <span class="seriesInfo">RFC 3552</span>, <span class="seriesInfo">DOI 10.17487/RFC3552</span>, <time datetime="2003-07" class="refDate">July 2003</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc3552">https://www.rfc-editor.org/rfc/rfc3552</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC5321">[RFC5321]</dt>
+        <dd>
+<span class="refAuthor">Klensin, J.</span>, <span class="refTitle">"Simple Mail Transfer Protocol"</span>, <span class="seriesInfo">RFC 5321</span>, <span class="seriesInfo">DOI 10.17487/RFC5321</span>, <time datetime="2008-10" class="refDate">October 2008</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc5321">https://www.rfc-editor.org/rfc/rfc5321</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC5322">[RFC5322]</dt>
+        <dd>
+<span class="refAuthor">Resnick, P., Ed.</span>, <span class="refTitle">"Internet Message Format"</span>, <span class="seriesInfo">RFC 5322</span>, <span class="seriesInfo">DOI 10.17487/RFC5322</span>, <time datetime="2008-10" class="refDate">October 2008</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc5322">https://www.rfc-editor.org/rfc/rfc5322</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC5657">[RFC5657]</dt>
+        <dd>
+<span class="refAuthor">Dusseault, L.</span> and <span class="refAuthor">R. Sparks</span>, <span class="refTitle">"Guidance on Interoperation and Implementation Reports for Advancement to Draft Standard"</span>, <span class="seriesInfo">BCP 9</span>, <span class="seriesInfo">RFC 5657</span>, <span class="seriesInfo">DOI 10.17487/RFC5657</span>, <time datetime="2009-09" class="refDate">September 2009</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc5657">https://www.rfc-editor.org/rfc/rfc5657</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC6410">[RFC6410]</dt>
+        <dd>
+<span class="refAuthor">Housley, R.</span>, <span class="refAuthor">Crocker, D.</span>, and <span class="refAuthor">E. Burger</span>, <span class="refTitle">"Reducing the Standards Track to Two Maturity Levels"</span>, <span class="seriesInfo">BCP 9</span>, <span class="seriesInfo">RFC 6410</span>, <span class="seriesInfo">DOI 10.17487/RFC6410</span>, <time datetime="2011-10" class="refDate">October 2011</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc6410">https://www.rfc-editor.org/rfc/rfc6410</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC6576">[RFC6576]</dt>
+        <dd>
+<span class="refAuthor">Geib, R., Ed.</span>, <span class="refAuthor">Morton, A.</span>, <span class="refAuthor">Fardid, R.</span>, and <span class="refAuthor">A. Steinmitz</span>, <span class="refTitle">"IP Performance Metrics (IPPM) Standard Advancement Testing"</span>, <span class="seriesInfo">BCP 176</span>, <span class="seriesInfo">RFC 6576</span>, <span class="seriesInfo">DOI 10.17487/RFC6576</span>, <time datetime="2012-03" class="refDate">March 2012</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc6576">https://www.rfc-editor.org/rfc/rfc6576</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC6973">[RFC6973]</dt>
+        <dd>
+<span class="refAuthor">Cooper, A.</span>, <span class="refAuthor">Tschofenig, H.</span>, <span class="refAuthor">Aboba, B.</span>, <span class="refAuthor">Peterson, J.</span>, <span class="refAuthor">Morris, J.</span>, <span class="refAuthor">Hansen, M.</span>, and <span class="refAuthor">R. Smith</span>, <span class="refTitle">"Privacy Considerations for Internet Protocols"</span>, <span class="seriesInfo">RFC 6973</span>, <span class="seriesInfo">DOI 10.17487/RFC6973</span>, <time datetime="2013-07" class="refDate">July 2013</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc6973">https://www.rfc-editor.org/rfc/rfc6973</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC7258">[RFC7258]</dt>
+        <dd>
+<span class="refAuthor">Farrell, S.</span> and <span class="refAuthor">H. Tschofenig</span>, <span class="refTitle">"Pervasive Monitoring Is an Attack"</span>, <span class="seriesInfo">BCP 188</span>, <span class="seriesInfo">RFC 7258</span>, <span class="seriesInfo">DOI 10.17487/RFC7258</span>, <time datetime="2014-05" class="refDate">May 2014</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc7258">https://www.rfc-editor.org/rfc/rfc7258</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC7704">[RFC7704]</dt>
+        <dd>
+<span class="refAuthor">Crocker, D.</span> and <span class="refAuthor">N. Clark</span>, <span class="refTitle">"An IETF with Much Diversity and Professional Conduct"</span>, <span class="seriesInfo">RFC 7704</span>, <span class="seriesInfo">DOI 10.17487/RFC7704</span>, <time datetime="2015-11" class="refDate">November 2015</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc7704">https://www.rfc-editor.org/rfc/rfc7704</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC8170">[RFC8170]</dt>
+        <dd>
+<span class="refAuthor">Thaler, D., Ed.</span>, <span class="refTitle">"Planning for Protocol Adoption and Subsequent Transitions"</span>, <span class="seriesInfo">RFC 8170</span>, <span class="seriesInfo">DOI 10.17487/RFC8170</span>, <time datetime="2017-05" class="refDate">May 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8170">https://www.rfc-editor.org/rfc/rfc8170</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC8280">[RFC8280]</dt>
+        <dd>
+<span class="refAuthor">ten Oever, N.</span> and <span class="refAuthor">C. Cath</span>, <span class="refTitle">"Research into Human Rights Protocol Considerations"</span>, <span class="seriesInfo">RFC 8280</span>, <span class="seriesInfo">DOI 10.17487/RFC8280</span>, <time datetime="2017-10" class="refDate">October 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8280">https://www.rfc-editor.org/rfc/rfc8280</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC9501">[RFC9501]</dt>
+        <dd>
+<span class="refAuthor">Kühlewind, M.</span>, <span class="refAuthor">Reed, J.</span>, and <span class="refAuthor">R. Salz</span>, <span class="refTitle">"Open Participation Principle regarding Remote Registration Fee"</span>, <span class="seriesInfo">BCP 239</span>, <span class="seriesInfo">RFC 9501</span>, <span class="seriesInfo">DOI 10.17487/RFC9501</span>, <time datetime="2023-12" class="refDate">December 2023</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9501">https://www.rfc-editor.org/rfc/rfc9501</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC9620">[RFC9620]</dt>
+      <dd>
+<span class="refAuthor">Grover, G.</span> and <span class="refAuthor">N. ten Oever</span>, <span class="refTitle">"Guidelines for Human Rights Protocol and Architecture Considerations"</span>, <span class="seriesInfo">RFC 9620</span>, <span class="seriesInfo">DOI 10.17487/RFC9620</span>, <time datetime="2024-09" class="refDate">September 2024</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9620">https://www.rfc-editor.org/rfc/rfc9620</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+</dl>
+</section>
+</div>
+</section>
+</div>
+<div id="acknowledgments">
+<section id="appendix-A">
+      <h2 id="name-acknowledgments">
+<a href="#name-acknowledgments" class="section-name selfRef">Acknowledgments</a>
+      </h2>
+<p id="appendix-A-1">TODO acknowledge.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="authors-addresses">
+<section id="appendix-B">
+      <h2 id="name-authors-address">
+<a href="#name-authors-address" class="section-name selfRef">Author's Address</a>
+      </h2>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Tara Tarakiyee</span></div>
+<div dir="auto" class="left"><span class="org">Sovereign Tech Agency</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:me@tarakiyee.com" class="email">me@tarakiyee.com</a>
+</div>
+</address>
+</section>
+</div>
+<script>const toc = document.getElementById("toc");
+toc.querySelector("h2").addEventListener("click", e => {
+  toc.classList.toggle("active");
+});
+toc.querySelector("nav").addEventListener("click", e => {
+  toc.classList.remove("active");
+});
+</script>
+</body>
+</html>
