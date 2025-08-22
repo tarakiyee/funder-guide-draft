@@ -8,17 +8,11 @@ submissiontype: "independent"
 number:
 date:
 v: 3
-# area: AREA
-# workgroup: WG Working Group
 keyword:
  - funder guide
  - standards evaluation
  - public interest
 venue:
-#  group: WG
-#  type: Working Group
-#  mail: WG@example.com
-#  arch: https://example.com/WG
   github: "tarakiyee/funder-guide-draft"
   latest: "https://tarakiyee.github.io/funder-guide-draft/draft-tarakiyee-funder-guide.html"
 
@@ -27,7 +21,7 @@ author:
     fullname: "Tara Tarakiyee"
     organization: Sovereign Tech Agency
     email: "me@tarakiyee.com"
-    
+
 normative:
   RFC2026:
   RFC3935:
@@ -80,9 +74,9 @@ Public funding plays two critical roles in standards development:
 **Addressing Market Failures**: Some essential standards lack commercial incentives entirely:
 
 - **Public goods**: Standards that benefit everyone but generate no direct revenue (like security protocols that protect personal privacy)
-- **Coordination problems**: Standards requiring simultaneous adoption by competitors not willing to work with each other. 
-- **Long-term infrastructure**: Standards whose benefits appear over decades rather than quarterly earnings cycles
-- **Underserved communities**: Standards addressing needs of users who lack market power
+- **Coordination problems**: Standards requiring simultaneous adoption by competitors not willing to work with each other.
+- **Long-term infrastructure**: Standards whose benefits appear over decades rather than quarterly earnings cycles.
+- **Underserved communities**: Standards addressing needs of users who lack market power.
 
 Strategic public investment ensures standards serve society's needs, not just commercial interests.
 
@@ -106,7 +100,7 @@ I tried to reference specific RFCs when possible, not to overwhelm with citation
 
 Technical standards are documented agreements about how technology should work. They're not software or hardware themselves, but rather the specifications that allow different implementations to work together. Consider email: {{RFC5321}} defines how email servers transfer messages, while {{RFC5322}} defines the message format. Any software following these specifications can exchange email with any other conforming software.
 
-This **interoperability** is the fundamental purpose of standards. It is absolutely neccesary for a global internet to work. 
+This **interoperability** is the fundamental purpose of standards. It is absolutely neccesary for a global internet to work.
 
 ## The Standards Development Lifecycle
 
@@ -128,7 +122,7 @@ The IETF formalizes this in {{RFC2026}} "The Internet Standards Process," which 
 
 ## Standards Organizations and Their Approaches
 
-There are several technical standards organisations and they don't all operate the same way. It's important for funders to understand this to determine the most effective way to engage with the standards process. While this guide primarily focuses on the IETF, it's important to note this here to give the full picture. 
+There are several technical standards organisations and they don't all operate the same way. It's important for funders to understand this to determine the most effective way to engage with the standards process. While this guide primarily focuses on the IETF, it's important to note this here to give the full picture.
 
 - **IETF**: Emphasizes "rough consensus and running code," open participation, and voluntary adoption.
 - **W3C**: A vendor forum focused on web standards, strong industry membership and stringent patent policies.
@@ -141,10 +135,10 @@ Understanding an organization's approach is important to help determine the appr
 
 ## The Mission: Making the Internet Work Better
 
-{{RFC3935}} defines the IETF's mission: "to make the Internet work better by producing high quality, relevant technical and engineering documents that influence the way people design, use, and manage the Internet." 
-- **"Work better"** points to the incremental approach of the IETF, not waiting for perfection. 
-- **Quality and relevance** point to how IETF standards must be both technically sound and actually used in the real world. 
-- **Influence, not mandate** highlights an important part of how IETF Standards work. They often succeed through voluntary adoption, however this doesn't stop national and international regulatory bodies from voluntarily adopting IETF standards in their regulation. 
+{{RFC3935}} defines the IETF's mission: "to make the Internet work better by producing high quality, relevant technical and engineering documents that influence the way people design, use, and manage the Internet."
+- **"Work better"** points to the incremental approach of the IETF, not waiting for perfection.
+- **Quality and relevance** point to how IETF standards must be both technically sound and actually used in the real world.
+- **Influence, not mandate** highlights an important part of how IETF Standards work. They often succeed through voluntary adoption, however this doesn't stop national and international regulatory bodies from voluntarily adopting IETF standards in their regulation.
 
 ## Rough Consensus and Running Code
 
@@ -169,7 +163,7 @@ The openness is meant to serve multiple purposes:
 - Improves quality through diverse perspectives
 - Builds legitimacy through inclusive processes
 
-However achieving these benefits meaningfully and in practice requires concentrated effort, and for the purposes of this guide, adequtete funding.  
+However achieving these benefits meaningfully and in practice requires concentrated effort, and for the purposes of this guide, adequtete funding.
 
 ## The End-to-End Principle and User Focus
 
@@ -308,7 +302,7 @@ When evaluating human rights impacts, consider:
 - Will it widen or narrow global digital divides?
 - Does it enable local innovation or require dependence on foreign technology?
 
-These broader assessments are often completely absent from standards work. Industry participants may not see them as relevant. Public funding can support more Human Rights and Privacy assesments to be done. 
+These broader assessments are often completely absent from standards work. Industry participants may not see them as relevant. Public funding can support more Human Rights and Privacy assesments to be done.
 
 # Following Standards Work {#followingwork}
 
@@ -406,11 +400,11 @@ Remember that meaningful participation requires sustained engagement. A single c
 
 Based on IETF experience, public funders should require:
 
-1. **Working Implementations**: Following {{RFC7942}}, require documented implementation status before significant funding. 
+1. **Working Implementations**: Following {{RFC7942}}, require documented implementation status before significant funding.
 
 2. **Open Process**: Verify adherence to {{RFC6852}}'s OpenStand principles
 
-3. **Multiple Implementers**: Ensure genuine interoperability per {{RFC5657}} guidelines. Often it is good to have a diversity of implementations, such as a reference implementation that is faithful to the specification, and an opinionated one that maintainas interoperability while focusing on a specific use case for the standard. 
+3. **Multiple Implementers**: Ensure genuine interoperability per {{RFC5657}} guidelines. Often it is good to have a diversity of implementations, such as a reference implementation that is faithful to the specification, and an opinionated one that maintainas interoperability while focusing on a specific use case for the standard.
 
 4. **Human Rights Assessment**: Apply {{RFC9620}}'s evaluation framework
 
