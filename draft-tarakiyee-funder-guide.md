@@ -7,14 +7,13 @@ docname: draft-tarakiyee-funder-guide-latest
 submissiontype: "independent"
 number:
 date:
-consensus: true
 v: 3
 # area: AREA
 # workgroup: WG Working Group
 keyword:
- - next generation
- - unicorn
- - sparkling distributed ledger
+ - funder guide
+ - standards evaluation
+ - public interest
 venue:
 #  group: WG
 #  type: Working Group
