@@ -163,7 +163,7 @@ The openness is meant to serve multiple purposes:
 - Improves quality through diverse perspectives
 - Builds legitimacy through inclusive processes
 
-However achieving these benefits meaningfully and in practice requires concentrated effort, and for the purposes of this guide, adequtete funding. 
+However achieving these benefits meaningfully and in practice requires concentrated effort, and for the purposes of this guide, adequtete funding.
 
 ## The End-to-End Principle and User Focus
 
