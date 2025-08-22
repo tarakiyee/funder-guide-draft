@@ -1,8 +1,8 @@
 <!-- regenerate: on (set to off if you edit this file) -->
 
-# TODO - Your title
+# Evaluating Technical Standards in the Public Interest: A Guide for Public Funding Organizations
 
-This is the working area for the individual Internet-Draft, "TODO - Your title".
+This is the working area for the individual Internet-Draft, "Evaluating Technical Standards in the Public Interest: A Guide for Public Funding Organizations".
 
 * [Editor's Copy](https://tarakiyee.github.io/funder-guide-draft/#go.draft-tarakiyee-funder-guide.html)
 * [Datatracker Page](https://datatracker.ietf.org/doc/draft-tarakiyee-funder-guide)
