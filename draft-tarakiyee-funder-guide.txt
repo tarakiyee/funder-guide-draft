@@ -2,14 +2,15 @@
 
 
 
-WG Working Group                                              Y. N. Here
-Internet-Draft                                    Your Organization Here
+Network Working Group                                       T. Tarakiyee
+Internet-Draft                                     Sovereign Tech Agency
 Intended status: Informational                            22 August 2025
 Expires: 23 February 2026
 
 
-                           TODO - Your title
-                  draft-todo-yourname-protocol-latest
+   Evaluating Technical Standards in the Public Interest: A Guide for
+                      Public Funding Organizations
+                  draft-tarakiyee-funder-guide-latest
 
 Abstract
 
@@ -20,16 +21,12 @@ About This Document
    This note is to be removed before publishing as an RFC.
 
    The latest revision of this draft can be found at
-   https://example.com/LATEST.  Status information for this document may
-   be found at https://datatracker.ietf.org/doc/draft-todo-yourname-
-   protocol/.
-
-   Discussion of this document takes place on the WG Working Group
-   mailing list (mailto:WG@example.com), which is archived at
-   https://example.com/WG.
+   https://tarakiyee.github.io/funder-guide-draft/draft-tarakiyee-
+   funder-guide.html.  Status information for this document may be found
+   at https://datatracker.ietf.org/doc/draft-tarakiyee-funder-guide/.
 
    Source for this draft and an issue tracker can be found at
-   https://github.com/USER/REPO.
+   https://github.com/tarakiyee/funder-guide-draft.
 
 Status of This Memo
 
@@ -57,10 +54,7 @@ Copyright Notice
    Provisions Relating to IETF Documents (https://trustee.ietf.org/
    license-info) in effect on the date of publication of this document.
    Please review these documents carefully, as they describe your rights
-   and restrictions with respect to this document.  Code Components
-   extracted from this document must include Revised BSD License text as
-   described in Section 4.e of the Trust Legal Provisions and are
-   provided without warranty as described in the Revised BSD License.
+   and restrictions with respect to this document.
 
 Table of Contents
 
@@ -109,6 +103,6 @@ Acknowledgments
 
 Author's Address
 
-   Your Name Here
-   Your Organization Here
-   Email: your.email@example.com
+   Tara Tarakiyee
+   Sovereign Tech Agency
+   Email: me@tarakiyee.com
