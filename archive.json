@@ -1,0 +1,83 @@
+{
+  "magic": "E!vIA5L86J2I",
+  "timestamp": "2025-08-24T01:13:23.279465+00:00",
+  "repo": "tarakiyee/funder-guide-draft",
+  "labels": [
+    {
+      "name": "bug",
+      "description": "Something isn't working",
+      "color": "d73a4a"
+    },
+    {
+      "name": "documentation",
+      "description": "Improvements or additions to documentation",
+      "color": "0075ca"
+    },
+    {
+      "name": "duplicate",
+      "description": "This issue or pull request already exists",
+      "color": "cfd3d7"
+    },
+    {
+      "name": "enhancement",
+      "description": "New feature or request",
+      "color": "a2eeef"
+    },
+    {
+      "name": "good first issue",
+      "description": "Good for newcomers",
+      "color": "7057ff"
+    },
+    {
+      "name": "help wanted",
+      "description": "Extra attention is needed",
+      "color": "008672"
+    },
+    {
+      "name": "invalid",
+      "description": "This doesn't seem right",
+      "color": "e4e669"
+    },
+    {
+      "name": "question",
+      "description": "Further information is requested",
+      "color": "d876e3"
+    },
+    {
+      "name": "wontfix",
+      "description": "This will not be worked on",
+      "color": "ffffff"
+    }
+  ],
+  "issues": [],
+  "pulls": [
+    {
+      "number": 1,
+      "id": "PR_kwDOPiYK9M6k4gQm",
+      "title": "fixed whitespace",
+      "url": "https://github.com/tarakiyee/funder-guide-draft/pull/1",
+      "state": "MERGED",
+      "author": "tarakiyee",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-08-22T13:05:10Z",
+      "updatedAt": "2025-08-22T13:24:51Z",
+      "baseRepository": "tarakiyee/funder-guide-draft",
+      "baseRefName": "main",
+      "baseRefOid": "821583c5487a64d565b1920a63b0b671054948be",
+      "headRepository": "tarakiyee/funder-guide-draft",
+      "headRefName": "tarakiyee-patch-1",
+      "headRefOid": "76c352fe86dc3b211e150b71745017c8f7aee596",
+      "closedAt": "2025-08-22T13:14:00Z",
+      "mergedAt": "2025-08-22T13:14:00Z",
+      "mergedBy": "tarakiyee",
+      "mergeCommit": {
+        "oid": "5236e7dfc770615a2d65ba7b123fdce74b42b7e0"
+      },
+      "comments": [],
+      "reviews": []
+    }
+  ]
+}
