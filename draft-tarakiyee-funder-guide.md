@@ -100,7 +100,7 @@ I tried to reference specific RFCs when possible, not to overwhelm with citation
 
 Technical standards are documented agreements about how technology should work. They're not software or hardware themselves, but rather the specifications that allow different implementations to work together. Consider email: {{RFC5321}} defines how email servers transfer messages, while {{RFC5322}} defines the message format. Any software following these specifications can exchange email with any other conforming software.
 
-This **interoperability** is the fundamental purpose of standards. It is absolutely neccesary for a global internet to work.
+This **interoperability** is the fundamental purpose of standards. It is absolutely necessary for a global internet to work.
 
 ## The Standards Development Lifecycle
 
