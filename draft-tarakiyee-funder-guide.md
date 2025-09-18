@@ -100,7 +100,7 @@ I tried to reference specific RFCs when possible, not to overwhelm with citation
 
 Technical standards are documented agreements about how technology should work. They're not software or hardware themselves, but rather the specifications that allow different implementations to work together. Consider email: {{RFC5321}} defines how email servers transfer messages, while {{RFC5322}} defines the message format. Any software following these specifications can exchange email with any other conforming software.
 
-This **interoperability** is the fundamental purpose of standards. It is absolutely neccesary for a global internet to work.
+This **interoperability** is the fundamental purpose of standards. It is absolutely necessary for a global internet to work.
 
 ## The Standards Development Lifecycle
 
@@ -125,7 +125,7 @@ The IETF formalizes this in {{RFC2026}} "The Internet Standards Process," which 
 There are several technical standards organisations and they don't all operate the same way. It's important for funders to understand this to determine the most effective way to engage with the standards process. While this guide primarily focuses on the IETF, it's important to note this here to give the full picture.
 
 - **IETF**: Emphasizes "rough consensus and running code," open participation, and voluntary adoption.
-- **W3C**: A vendor forum focused on web standards, strong industry membership and stringent patent policies.
+- **W3C**: Global vendor-neutral forum for open web standards, royalty-free to boost adoption, rigorous consideration of accessibility, internationalization, privacy, and security.
 - **IEEE**: Develops standards through formal balloting processes with strict membership rules.
 - **ISO**: Creates international standards through national body representation.
 
