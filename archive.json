@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-09-18T01:01:33.742177+00:00",
+  "timestamp": "2025-09-21T01:08:46.907136+00:00",
   "repo": "tarakiyee/funder-guide-draft",
   "labels": [
     {
@@ -76,6 +76,32 @@
       "mergeCommit": {
         "oid": "5236e7dfc770615a2d65ba7b123fdce74b42b7e0"
       },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 2,
+      "id": "PR_kwDOPiYK9M6pOASB",
+      "title": "Adjust description of W3C",
+      "url": "https://github.com/tarakiyee/funder-guide-draft/pull/2",
+      "state": "OPEN",
+      "author": "dontcallmedom",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "I've started reviewing the doc as I was pointed to it by a colleague; I'm planning to conduct a more in depth review, but meanwhile, I hope this is a useful simple contribution",
+      "createdAt": "2025-09-18T07:12:43Z",
+      "updatedAt": "2025-09-18T08:58:12Z",
+      "baseRepository": "tarakiyee/funder-guide-draft",
+      "baseRefName": "main",
+      "baseRefOid": "ab25a545160f74f232f27e9aa04a9dc4915dca64",
+      "headRepository": "dontcallmedom/funder-guide-draft",
+      "headRefName": "w3c-desc",
+      "headRefOid": "45fc6b4cf135f0b7ee7c4ce33720cb762fb0694d",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
       "comments": [],
       "reviews": []
     }
