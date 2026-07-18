@@ -432,6 +432,8 @@ A systematic evaluation should include:
 
 Even in commercially viable standards, public funding should ensure public interest representation:
 
+**Fund People Who Can Engage on the Venue's Terms**: In the IETF, arguments win by being technically specific. Concerns raised purely from a user or advocacy perspective, however legitimate, are routinely set aside as out of scope unless someone translates them into protocol-level terms. One might wish participation worked otherwise, but funders should work with the venue as it is: funding people who combine technical competence with the social skills of consensus work - reading and reviewing drafts, speaking the community's language, building working relationships - is far more effective than funding representation as such. In practice this means prioritizing public interest technologists, pairing advocates with engineers who share their goals, and investing in developing people who can do both.
+
 **Travel and Participation Support**:
 
 - Fund attendance at critical IETF meetings and interim sessions
