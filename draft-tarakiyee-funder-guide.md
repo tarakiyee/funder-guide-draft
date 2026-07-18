@@ -77,6 +77,7 @@ Public funding plays two critical roles in standards development:
 - **Coordination problems**: Standards requiring simultaneous adoption by competitors not willing to work with each other.
 - **Long-term infrastructure**: Standards whose benefits appear over decades rather than quarterly earnings cycles.
 - **Underserved communities**: Standards addressing needs of users who lack market power.
+- **Concentrated control**: Standards that open up a technology controlled by a single dominant vendor, enabling competing implementations and preventing lock-in. Here the market failure is not that nobody will pay, but that the party best resourced to standardize benefits from not doing so.
 
 Strategic public investment ensures standards serve society's needs, not just commercial interests.
 
