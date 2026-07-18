@@ -4,8 +4,8 @@
 
 Network Working Group                                       T. Tarakiyee
 Internet-Draft                                     Sovereign Tech Agency
-Intended status: Informational                            22 August 2025
-Expires: 23 February 2026
+Intended status: Informational                              18 July 2026
+Expires: 19 January 2027
 
 
    Evaluating Technical Standards in the Public Interest: A Guide for
@@ -54,11 +54,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 23 February 2026.
+   This Internet-Draft will expire on 19 January 2027.
 
 Copyright Notice
 
-   Copyright (c) 2025 IETF Trust and the persons identified as the
+   Copyright (c) 2026 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -75,6 +75,7 @@ Table of Contents
    2.  Understanding Technical Standards
      2.1.  What Standards Actually Do
      2.2.  The Standards Development Lifecycle
+       2.2.1.  How Long It Actually Takes: Two Examples
      2.3.  Standards Organizations and Their Approaches
    3.  The IETF Model
      3.1.  The Mission: Making the Internet Work Better
@@ -242,6 +243,35 @@ Table of Contents
    Process," which requires demonstrating "sufficient successful
    operational experience" before advancing standards.  This means
    standards must prove themselves in reality, not just theory.
+
+2.2.1.  How Long It Actually Takes: Two Examples
+
+   Funders consistently underestimate standards timescales, so it is
+   worth making them concrete.
+
+   The response to pervasive monitoring shows how long a single arc of
+   standards work can run.  [RFC7258] declared pervasive monitoring an
+   attack on the Internet in 2014.  Encrypting DNS traffic, one strand
+   of the response, produced DNS over TLS ([RFC7858]) in 2016 and DNS
+   over HTTPS ([RFC8484]) in 2018, and related work on encrypting the
+   remaining cleartext in the TLS handshake (Encrypted Client Hello)
+   continued a decade after the original declaration.  Each published
+   document represents years of drafts, mailing list debate,
+   implementations, and interoperability testing, and deployment battles
+   continued long after publication.
+
+   The Messaging Layer Security protocol ([RFC9420]) took five years
+   from working group charter (2018) to publication (2023), with
+   implementation work running alongside throughout.  It also
+   illustrates a second pattern funders should expect: successful
+   engagement in one topic tends to grow into engagement in others.  The
+   community that built MLS carried its expertise and relationships
+   directly into subsequent work on messaging interoperability (the MIMI
+   working group), where the same participants shaped a new topic from a
+   position of earned credibility.  A funder who supports someone into
+   one working group should expect, and welcome, that the investment
+   compounds across adjacent work rather than ending with a single
+   document.
 
 2.3.  Standards Organizations and Their Approaches
 
@@ -986,6 +1016,11 @@ Table of Contents
               Professional Conduct", RFC 7704, DOI 10.17487/RFC7704,
               November 2015, <https://www.rfc-editor.org/rfc/rfc7704>.
 
+   [RFC7858]  Hu, Z., Zhu, L., Heidemann, J., Mankin, A., Wessels, D.,
+              and P. Hoffman, "Specification for DNS over Transport
+              Layer Security (TLS)", RFC 7858, DOI 10.17487/RFC7858, May
+              2016, <https://www.rfc-editor.org/rfc/rfc7858>.
+
    [RFC8170]  Thaler, D., Ed., "Planning for Protocol Adoption and
               Subsequent Transitions", RFC 8170, DOI 10.17487/RFC8170,
               May 2017, <https://www.rfc-editor.org/rfc/rfc8170>.
@@ -993,6 +1028,15 @@ Table of Contents
    [RFC8280]  ten Oever, N. and C. Cath, "Research into Human Rights
               Protocol Considerations", RFC 8280, DOI 10.17487/RFC8280,
               October 2017, <https://www.rfc-editor.org/rfc/rfc8280>.
+
+   [RFC8484]  Hoffman, P. and P. McManus, "DNS Queries over HTTPS
+              (DoH)", RFC 8484, DOI 10.17487/RFC8484, October 2018,
+              <https://www.rfc-editor.org/rfc/rfc8484>.
+
+   [RFC9420]  Barnes, R., Beurdouche, B., Robert, R., Millican, J.,
+              Omara, E., and K. Cohn-Gordon, "The Messaging Layer
+              Security (MLS) Protocol", RFC 9420, DOI 10.17487/RFC9420,
+              July 2023, <https://www.rfc-editor.org/rfc/rfc9420>.
 
    [RFC9501]  Kühlewind, M., Reed, J., and R. Salz, "Open Participation
               Principle regarding Remote Registration Fee", BCP 239,
