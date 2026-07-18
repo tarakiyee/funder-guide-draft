@@ -37,6 +37,7 @@ informative:
   RFC5321:
   RFC5322:
   RFC5657:
+  RFC6365:
   RFC6410:
   RFC6576:
   RFC6973:
@@ -256,7 +257,7 @@ However, current frameworks show a bias toward civil and political rights such a
 
 - **Economic rights**: How do standards affect access to work, fair wages, and economic participation? Do they enable or prevent economic exploitation?
 - **Social rights**: Do standards support rights to education, health, and social security? How do they affect community participation?
-- **Cultural rights**: Do standards respect cultural diversity, linguistic rights, and traditional knowledge? Do they impose particular cultural assumptions?
+- **Cultural rights**: Do standards respect cultural diversity, linguistic rights, and traditional knowledge? Do they impose particular cultural assumptions? The IETF's internationalization work, whose terminology is defined in {{RFC6365}}, addresses one concrete precondition for cultural participation online: whether protocols and formats can represent the world's languages, scripts, and writing systems at all.
 
 As a global network serving diverse populations, the Internet's standards must consider all human rights. Public funders can support development of more comprehensive assessment frameworks that address this gap.
 
@@ -276,7 +277,7 @@ As a global network serving diverse populations, the Internet's standards must c
 {{RFC7704}} "An IETF with Much Diversity and Professional Conduct" documents that diverse participation improves standards quality. Standards should be evaluated for:
 
 - **Accessibility**: Can people with disabilities use the technology?
-- **Internationalization**: Does it work for all languages and cultures?
+- **Internationalization**: Does it work for all languages and cultures? {{RFC6365}} defines the relevant terminology, including the important distinction between internationalization (designing protocols so they can work across languages and scripts) and localization (adapting them for a specific one).
 - **Digital Divide**: Does it function in low-bandwidth or high-latency environments?
 - **Economic Barriers**: Can it be implemented without expensive licenses or hardware?
 
