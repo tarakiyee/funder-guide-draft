@@ -350,7 +350,19 @@ Funders can engage with standards development through:
 - **Capacity Building**: Training new participants from underrepresented communities
 - **Coalition Building**: Bringing together public interest groups to coordinate standards engagement
 
-Remember that meaningful participation requires sustained engagement. A single comment or meeting attendance rarely influences outcomes. Public interest advocates need support for the long-term commitment that effective standards work requires.
+### Sustained Engagement {#sustained}
+
+Meaningful participation requires sustained engagement, and funders should plan for this from the start. Three characteristics of standards work make one-off interventions ineffective:
+
+**Standards timescales are long.** A specification typically takes years to move from initial draft to published RFC, and deployment takes longer still. A twelve-month grant cannot cover the life of a working group document. Funders should match funding durations to standards timescales, or plan explicitly for renewal rather than treating continuation as an exception.
+
+**Influence runs on trust and reputation.** Consensus bodies work through relationships. Participants earn credibility by contributing consistently over time: reviewing other people's documents, knowing the history of a debate, doing the unglamorous work between meetings. This credibility cannot be bought or parachuted in, which is why a single comment or one-time meeting attendance rarely influences outcomes.
+
+**Process literacy takes time to acquire.** Before participation becomes effective, newcomers need to learn how decisions are actually made, which venues matter, and how to raise a concern in a form the community can act on. Funders should budget for this learning period rather than expecting results in the first funding cycle.
+
+### Working With Experienced Communities
+
+Funders entering standards work should connect early with the people and organizations who already do it: public interest advocates with a sustained presence in standards bodies, groups like the IRTF's Human Rights Protocol Considerations research group, and researchers who study standards processes. Their experience significantly improves the effectiveness of new funding efforts, from identifying which venues and documents matter to calibrating realistic timelines. It also helps avoid a real failure mode: parallel, uninformed engagement efforts that cost credibility for the public interest participants already in the room.
 
 # Common Pitfalls and How to Avoid Them {#pitfalls}
 
@@ -452,6 +464,7 @@ Even in commercially viable standards, public funding should ensure public inter
 - Support fellowships for underrepresented participants
 - Create mentorship programs pairing newcomers with experienced participants
 - Fund time for advocates to engage deeply with technical details
+- Partner with communities that have sustained standards experience rather than building parallel efforts from scratch (see {{sustained}})
 
 ### Direct Standards Development
 
