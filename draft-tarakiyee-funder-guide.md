@@ -46,6 +46,24 @@ informative:
   RFC8280:
   RFC9501:
   RFC9620:
+  CATH2021:
+    title: "The technology we choose to create: Human rights advocacy in the Internet Engineering Task Force"
+    author:
+      - fullname: Corinne Cath
+    date: 2021
+    seriesinfo:
+      "Telecommunications Policy": "45(6)"
+      DOI: 10.1016/j.telpol.2021.102144
+    target: https://doi.org/10.1016/j.telpol.2021.102144
+  CASTKA2008:
+    title: "ISO 26000 and supply chains - On the diffusion of the social responsibility standard"
+    author:
+      - fullname: Pavel Castka
+      - fullname: Michaela A. Balzarova
+    date: 2008
+    seriesinfo:
+      "International Journal of Production Economics": "111(2), pp. 274-286"
+    target: https://www.sciencedirect.com/science/article/pii/S0925527307003106
 
 --- abstract
 
@@ -129,7 +147,7 @@ There are several technical standards organisations and they don't all operate t
 - **IEEE**: Develops standards through formal balloting processes with strict membership rules.
 - **ISO**: Creates international standards through national body representation.
 
-Understanding an organization's approach is important to help determine the appropriate engagement mechanisms (if any) to align their proccesses with public interest goals.
+Understanding an organization's approach is important to help determine the appropriate engagement mechanisms (if any) to align their proccesses with public interest goals. These differences matter in practice: ISO's development of its social responsibility guidance standard (ISO 26000) illustrates how a national-body process handles a standard with explicitly social goals, and how the design of the standard shapes its diffusion and adoption ({{CASTKA2008}}). The evaluation principles in this guide draw on IETF experience, but funders engaging other bodies should expect different dynamics.
 
 # The IETF Model {#ietf-model}
 
@@ -155,6 +173,8 @@ Together, these principles ensure standards are both technically sound (through 
 {{RFC2026}} Section 6.5 establishes that IETF processes must be "open and fair" with "no more than a reasonable and non-discriminatory fee" for participation. {{RFC9501}} strengthened this in 2023 by requiring free remote participation options, recognizing that economic barriers prevent global participation.
 
 However, openness in principle doesn't guarantee participation in practice. Despite free remote options, critical discussions often happen in person - during meeting breaks, over dinner, side meetings, or in hallway conversations. The IETF meets three times yearly in different global locations, and attending costs thousands of dollars per meeting, and that doesn't include interim meetings for specific work that happen in-between. This creates an invisible barrier where well-funded corporate participants have advantages over public interest advocates.
+
+Ethnographic research confirms this gap between formal openness and effective participation. {{CATH2021}} documents, based on two years of fieldwork and 65 interviews, how the IETF's organizational culture and working practices create barriers for human rights advocates that go beyond cost: participants who have not absorbed the community's norms and technical registers struggle to have their concerns taken up, however open the process is on paper. Funders should read this as evidence that supporting participation means supporting people over time, not just covering travel.
 
 The openness is meant to serve multiple purposes:
 
@@ -250,7 +270,7 @@ Public funding can ensure these impacts are assessed and addressed, even in stan
 
 ## The Evolution Toward Human Rights Considerations
 
-The IETF's approach to standards has evolved from purely technical considerations to recognizing broader impacts. {{RFC8280}} "Research into Human Rights Protocol Considerations" pioneered systematic analysis of how technical choices affect human rights. {{RFC9620}} "Guidelines for Human Rights Protocol Considerations" (2024) provides practical assessment tools.
+The IETF's approach to standards has evolved from purely technical considerations to recognizing broader impacts. {{RFC8280}} "Research into Human Rights Protocol Considerations" pioneered systematic analysis of how technical choices affect human rights. {{RFC9620}} "Guidelines for Human Rights Protocol Considerations" (2024) provides practical assessment tools. For background on how human rights advocacy actually plays out inside the IETF, including the cultural and structural barriers advocates encounter, {{CATH2021}} provides a detailed ethnographic account.
 
 However, current frameworks show a bias toward civil and political rights such as privacy, freedom of expression, freedom from surveillance. While these are crucial, the full spectrum of human rights includes economic, social, and cultural rights that remain underexamined in standards work:
 
