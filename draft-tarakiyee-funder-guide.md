@@ -42,8 +42,11 @@ informative:
   RFC6973:
   RFC7258:
   RFC7704:
+  RFC7858:
   RFC8170:
   RFC8280:
+  RFC8484:
+  RFC9420:
   RFC9501:
   RFC9620:
 
@@ -119,6 +122,14 @@ Standards typically evolve through several phases:
 6. **Maintenance**: Updating the standard based on experience, fixing errors, adding needed features
 
 The IETF formalizes this in {{RFC2026}} "The Internet Standards Process," which requires demonstrating "sufficient successful operational experience" before advancing standards. This means standards must prove themselves in reality, not just theory.
+
+### How Long It Actually Takes: Two Examples
+
+Funders consistently underestimate standards timescales, so it is worth making them concrete.
+
+The response to pervasive monitoring shows how long a single arc of standards work can run. {{RFC7258}} declared pervasive monitoring an attack on the Internet in 2014. Encrypting DNS traffic, one strand of the response, produced DNS over TLS ({{RFC7858}}) in 2016 and DNS over HTTPS ({{RFC8484}}) in 2018, and related work on encrypting the remaining cleartext in the TLS handshake (Encrypted Client Hello) continued a decade after the original declaration. Each published document represents years of drafts, mailing list debate, implementations, and interoperability testing, and deployment battles continued long after publication.
+
+The Messaging Layer Security protocol ({{RFC9420}}) took five years from working group charter (2018) to publication (2023), with implementation work running alongside throughout. It also illustrates a second pattern funders should expect: successful engagement in one topic tends to grow into engagement in others. The community that built MLS carried its expertise and relationships directly into subsequent work on messaging interoperability (the MIMI working group), where the same participants shaped a new topic from a position of earned credibility. A funder who supports someone into one working group should expect, and welcome, that the investment compounds across adjacent work rather than ending with a single document.
 
 ## Standards Organizations and Their Approaches
 
