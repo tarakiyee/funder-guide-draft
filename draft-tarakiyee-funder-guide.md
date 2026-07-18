@@ -39,6 +39,15 @@ informative:
   RFC5657:
   RFC6410:
   RFC6576:
+  TOOLKIT:
+    title: "A Toolkit for Measuring the Impacts of Public Funding on Open Source Software Development"
+    author:
+      - fullname: Cailean Osborne
+      - fullname: Paul Sharratt
+      - fullname: Dawn Foster
+      - fullname: Mirko Boehm
+    date: 2024
+    target: https://arxiv.org/abs/2411.06027
   RFC6973:
   RFC7258:
   RFC7704:
@@ -473,7 +482,28 @@ Beyond direct development, consider funding:
 
 ## Success Metrics
 
-TODO
+Funders need ways to know whether standards investments worked. The temptation is to count outputs: documents published, meetings attended. Better metrics follow from what the funding was for. The framework in {{TOOLKIT}}, which organizes the impacts of public funding on open source development along social, economic, and technological dimensions and across time horizons from under a year to several years, transfers well to standards work; what follows adapts it to the three funding modes this guide describes.
+
+**When funding development of a standard**, measure what the standards process itself measures:
+
+- Independent interoperable implementations, documented per {{RFC7942}} - the single strongest indicator
+- Progression through maturity levels ({{RFC6410}}), keeping in mind that many widely deployed specifications remain at Proposed Standard
+- Deployment measurements where the protocol is observable in the wild (scan data, adoption statistics)
+- Citation of the standard in regulation, procurement requirements, or other standards
+
+**When funding participation**, measure engagement quality rather than volume:
+
+- Sustained presence across a working group's lifecycle, not meeting counts
+- Reviews contributed at the drafting stage, when input has the most influence
+- Documents authored or co-authored, and leadership roles earned over time
+- Whether concerns raised were addressed in the {{RFC7282}} sense: engaged with, not necessarily accommodated
+
+**When funding impact assessments**, measure whether assessments happened and whether they changed anything:
+
+- Privacy ({{RFC6973}}) and human rights ({{RFC9620}}) reviews produced
+- Documented changes to specifications attributable to those reviews - and treat this honestly as the hard case, since the evidence that such reviews change protocol outcomes remains mixed
+
+Two warnings. First, metrics create incentives, and poorly chosen ones can distort the work they are meant to measure: document counts encourage spinning off drafts that fragment rather than advance the work, and attendance counts reward presence without contribution. Compliance with milestones is not impact. Second, the macroeconomic literature on the value of standards - which attributes meaningful fractions of a percentage point of annual growth to the standards stock - measures the value of standards existing, not the return on funding participation in making them. Funders should cite it for the case that standards matter, not as evidence that a particular grant worked.
 
 # Conclusion
 
