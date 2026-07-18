@@ -32,6 +32,10 @@ normative:
   RFC8890:
 
 informative:
+  EIMPACT:
+    title: "IAB Environmental Impacts of Internet Technology (E-Impact) Program"
+    target: https://datatracker.ietf.org/group/eimpact/about/
+    date: false
   RFC1958:
   RFC3552:
   RFC5321:
@@ -45,6 +49,7 @@ informative:
   RFC8170:
   RFC8280:
   RFC9501:
+  RFC9547:
   RFC9620:
 
 --- abstract
@@ -88,6 +93,7 @@ This document provides:
 - The IETF model and its key principles ({{ietf-model}})
 - Practical evaluation criteria for funding decisions ({{evaluation}})
 - Human rights and social considerations ({{human-rights}})
+- Environmental impact considerations ({{environment}})
 - Methods for following standards development ({{followingwork}})
 - Common pitfalls and how to avoid them ({{pitfalls}})
 - Concrete recommendations for funders ({{recommendations}})
@@ -303,6 +309,21 @@ When evaluating human rights impacts, consider:
 - Does it enable local innovation or require dependence on foreign technology?
 
 These broader assessments are often completely absent from standards work. Industry participants may not see them as relevant. Public funding can support more Human Rights and Privacy assesments to be done.
+
+# Environmental Impact {#environment}
+
+Internet infrastructure has a material footprint. Standards influence how much energy networks and endpoints consume, how long hardware remains usable before it must be replaced, and whether systems can operate in energy-constrained environments. Like security and privacy, these are design-time decisions that become very difficult to reverse after deployment.
+
+The IETF community has begun to examine this systematically. {{RFC9547}} "Report from the IAB Workshop on Environmental Impact of Internet Applications and Systems" documents the current state of knowledge and, just as importantly, its gaps: reliable measurement methodologies, agreed metrics, and baseline data are largely missing. The IAB has since established the E-Impact program ({{EIMPACT}}) to continue this work.
+
+For funders, the immaturity of this area is itself the relevant fact. Unlike privacy, where {{RFC6973}} provides an established assessment framework, there is no equivalent framework for assessing the environmental impact of a protocol design. Industry participants have weak incentives to build one, since better measurement may reveal inconvenient results. This is the same pattern of market failure described in the introduction, and it makes environmental assessment a concrete funding opportunity rather than a compliance checkbox: public investment can support the measurement methodologies, independent research, and assessment tooling that this work currently lacks.
+
+When evaluating standards for environmental impact, consider:
+
+- Does the specification consider energy consumption in its design choices, or treat it as out of scope?
+- Can it be deployed on existing hardware, or does it drive premature hardware replacement?
+- Does it function in energy-constrained and intermittent-power environments?
+- Are efficiency claims stated in measurable terms that independent parties can verify?
 
 # Following Standards Work {#followingwork}
 
