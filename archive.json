@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-07-19T02:03:41.715077+00:00",
+  "timestamp": "2026-07-21T02:02:47.335740+00:00",
   "repo": "tarakiyee/funder-guide-draft",
   "labels": [
     {
@@ -49,7 +49,40 @@
       "color": "ffffff"
     }
   ],
-  "issues": [],
+  "issues": [
+    {
+      "number": 11,
+      "id": "I_kwDOPiYK9M8AAAABJcJ9kw",
+      "title": "Fill Acknowledgments section",
+      "url": "https://github.com/tarakiyee/funder-guide-draft/issues/11",
+      "state": "OPEN",
+      "author": "tarakiyee",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "The Acknowledgments section is still TODO. Before submission, ask each reviewer whether they'd like to be named",
+      "createdAt": "2026-07-20T11:27:11Z",
+      "updatedAt": "2026-07-20T11:27:11Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 12,
+      "id": "I_kwDOPiYK9M8AAAABJcK5-A",
+      "title": "Normalize citations for EU legal acts and non-RFC sources",
+      "url": "https://github.com/tarakiyee/funder-guide-draft/issues/12",
+      "state": "OPEN",
+      "author": "tarakiyee",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "- [ ] kramdown-rfc reference style for EU regulations (EUR-Lex targets? CELEX numbers?)\n- [ ] Check whether to reference the MIMI charter/problem statement as an Internet-Draft citation\n- [ ] Ensure consistent approach for the academic citations already in refs (CATH2021, CASTKA2008, TOOLKIT, IMC2021, ANRW2025)",
+      "createdAt": "2026-07-20T11:29:15Z",
+      "updatedAt": "2026-07-20T11:29:15Z",
+      "closedAt": null,
+      "comments": []
+    }
+  ],
   "pulls": [
     {
       "number": 1,
@@ -91,7 +124,7 @@
       "labels": [],
       "body": "I've started reviewing the doc as I was pointed to it by a colleague; I'm planning to conduct a more in depth review, but meanwhile, I hope this is a useful simple contribution",
       "createdAt": "2025-09-18T07:12:43Z",
-      "updatedAt": "2026-07-18T14:01:47Z",
+      "updatedAt": "2026-07-20T05:45:16Z",
       "baseRepository": "tarakiyee/funder-guide-draft",
       "baseRefName": "main",
       "baseRefOid": "ab25a545160f74f232f27e9aa04a9dc4915dca64",
@@ -116,6 +149,26 @@
           "createdAt": "2026-07-18T14:01:47Z",
           "updatedAt": "2026-07-18T14:01:47Z",
           "comments": []
+        },
+        {
+          "id": "PRR_kwDOPiYK9M8AAAABGhLEHQ",
+          "commit": {
+            "abbreviatedOid": "45fc6b4"
+          },
+          "author": "dontcallmedom",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-07-20T05:45:16Z",
+          "updatedAt": "2026-07-20T05:45:16Z",
+          "comments": [
+            {
+              "originalPosition": 14,
+              "body": "```suggestion\n- **W3C**: Membership-based consortium for web standards with a royalty-free patent policy, with a formal horizontal review process covering accessibility, internationalization, privacy, and security.\n```",
+              "createdAt": "2026-07-20T05:45:16Z",
+              "updatedAt": "2026-07-20T05:45:16Z"
+            }
+          ]
         }
       ]
     },
